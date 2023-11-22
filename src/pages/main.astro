@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+// import myPhoto from "../images/";
+
+
+
+const title = "My website";
+const description = "Hi! I am Nikita Osipov, a frontend developer.";
+const projects = [
+    {
+        title: "Project 1",
+        image: "path/to/project1-image.jpg",
+        description: "Brief description of Project 1.",
+    },
+    {
+        title: "Project 2",
+        image: "path/to/project2-image.jpg",
+        description: "Brief description of Project 2.",
+    },
+    {
+        title: "Project 3",
+        image: "path/to/project3-image.jpg",
+        description: "Brief description of Project 3.",
+    },
+];
+---
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+        <meta name="viewport" content="width=device-width"/>
+        <meta name="generator" content={Astro.generator}>
+        <title>{title}</title>
+    </head>
+
+    <body>
+    <div class="flex flex-col items-center justify-center min-h-screen text-center">
+        <div class="mb-8">
+            <!--<Image-->
+            <!--    src="path/to/your-photo.jpg"-->
+            <!--    alt="My Photo"-->
+            <!--    class="rounded-full w-16 h-16"-->
+            <!--/>-->
+        </div>
+        <h1 class="text-4xl font-bold mb-2">{description}</h1>
+        <p class="mb-8">Your short description goes here.</p>
+        <div class="grid grid-cols-1 gap-4">
+            {projects.map((project, index) =>
+                <div key={index} class="mb-4">
+                    <!--<Image-->
+                    <!--    src={project.image}-->
+                    <!--    alt={project.title}-->
+                    <!--    class="w-full h-40 object-cover mb-2 rounded"-->
+                    <!--/>-->
+                    <h3 class="text-lg font-semibold mb-1">{project.title}</h3>
+                    <span>{project.description}</span>
+                </div>
+            )}
+        </div>
+    </div>
+    </body>
+</html>
