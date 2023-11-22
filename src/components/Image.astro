@@ -1,11 +1,5 @@
 ---
-import { Image } from 'astro:assets';
-import localBirdImage from '../../images/subfolder/localBirdImage.png';
+import { Image } from "astro:assets";
+import localImage from '../images/photo.jpg';
 ---
-<Image src={localBirdImage} alt="A bird sitting on a nest of eggs."/>
-<Image src="/images/bird-in-public-folder.jpg" alt="A bird." width="50" height="50"/>
-<Image src="https://example.com/remote-bird.jpg" alt="A bird." width="50" height="50"/>
-
-<img src={localBirdImage.src} alt="A bird sitting on a nest of eggs.">
-<img src="/images/bird-in-public-folder.jpg" alt="A bird.">
-<img src="https://example.com/remote-bird.jpg" alt="A bird.">
+<Image src={localImage} alt="that's me" class="rounded-full w-32 h-32" />

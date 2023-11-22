@@ -19,3 +19,12 @@ h1 {
     margin: 1rem 0;
     font-size: 2.5rem;
 }
+
+html.dark {
+    background-color: #071732;
+    color: #fff;
+}
+
+.dark .nav-links a {
+    color: #fff;
+}
