@@ -1,10 +1,13 @@
 ---
-import ThemeIcon from "./ThemeIcon.astro";
+import ThemeSlider from "./ThemeSlider.astro";
 import Navigation from "./Navigation.astro";
 import Hamburger from "./Hamburger.astro";
+
 ---
-<header >
+<header class="flex justify-end">
     <nav>
-        <ThemeIcon />
+    <ThemeSlider id="theme-toggle" />
     </nav>
 </header>
+
+<script src="/lib/theme-util.js" type="text/javascript" is:inline></script>
