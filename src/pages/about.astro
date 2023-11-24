@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
 
@@ -13,7 +14,7 @@ const identity = {
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 
 const skillColor = "navy";
@@ -29,12 +30,6 @@ const textCase = "uppercase";
     <meta name="generator" content={Astro.generator}>
     <title>{pageTitle}</title>
     <style define:vars={{skillColor, fontWeight, textCase}}>
-        h1 {
-            color: purple;
-            font-size: 4rem;
-        }
-
-        /*noinspection ALL*/
         .skill {
             color: var(--skillColor);
             font-weight: var(--fontWeight);
@@ -43,10 +38,7 @@ const textCase = "uppercase";
     </style>
 </head>
 <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-    <h1>{pageTitle}</h1>
+<BaseLayout pageTitle={pageTitle}>
     <h2>... and my new Astro site!</h2>
 
     <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I
@@ -72,6 +64,8 @@ const textCase = "uppercase";
     {finished && <p>I finished this tutorial!</p>}
 
     {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+
+</BaseLayout>
 </body>
 </html>
 
