@@ -85,16 +85,16 @@ const experiences = [
 
 
 <BaseLayout title={title}>
-    <div class="flex flex-col items-center justify-center py-8 text-center">
+    <div class="flex flex-col items-center justify-center py-8 text-left">
 
-        <section class="mb-8 flex flex-row items-center place-content-end">
+        <section class="mb-8 flex flex-row items-center max-w-lg">
             <Image src={photo} alt="that's me" class="rounded-full w-32 h-32 object-cover"/>
-            <div>
+            <div class="mx-8">
                 <h1 class="text-xl font-bold mb-2 w-64">{name}</h1>
                 <p class="text-gray-400">{description}</p>
             </div>
         </section>
-        <p class="mb-8 text-sm">{text}</p>
+        <p class="my-2 max-w-lg text-sm">{text}</p>
         <div class="grid grid-cols-1 gap-8 mt-16">
             {projects.map((project, i) =>
                 i % 2 === 0 ?
