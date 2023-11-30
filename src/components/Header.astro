@@ -4,9 +4,10 @@ import Navigation from "./Navigation.astro";
 import Hamburger from "./Hamburger.astro";
 
 ---
-<header class="flex justify-end">
-    <nav>
-    <ThemeSlider id="theme-toggle" />
+<header class="relative">
+    <nav class="flex flex-row justify-between">
+        <Navigation />
+        <ThemeSlider id="theme-toggle" />
     </nav>
 </header>
 

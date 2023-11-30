@@ -9,7 +9,8 @@ import game from '../images/img2.png';
 const title = "My website";
 const name = "Nikita Osipov";
 const description = "frontend developer";
-const text = 'Hey there! I\'m Nikita, a frontend wizard based in Tbilisi, Georgia. I\'m passionate about crafting seamless user interfaces with TypeScript, React, Next.js, Astro, and Tailwind. I also dive into the backend world with NestJS, Strapi, Node, and Express. While most of my code is in TypeScript and JavaScript, I\'ve gained some commercial experience in Python. On the DevOps side, I\'m quite familiar with Docker and Gitlab CI. Currently on the lookout for exciting new challenges!'
+const text = 'Hey there! I\'m Nikita, a frontend developer based in Tbilisi, Georgia. I\'m passionate about crafting seamless user interfaces and solving complex problems in JavaScript and Typescript. Have some knowledge of NodeJS frameworks and Docker. Now on the lookout for exciting new challenges!'
+const technologies = ['NextJS', 'Astro', 'Typescript', 'React', 'Tailwind CSS', 'NestJS', 'Strapi', 'Node', 'ExpressJS', 'Docker', 'Gitlab CI', 'Python', 'C#' ];
 const projects = [
     {
         title: "Expense tracker",
@@ -22,10 +23,10 @@ const projects = [
         description: "Brief description of Game.",
     },
     // {
-    //     title: "Project 3",
-    //     image: "path/to/project3-image.jpg",
-    //     description: "Brief description of Project 3.",
-    // },
+    //     title: "My website",
+    //     image: '',
+    //     description: "You're here now",
+    // }
 ];
 
 const experiences = [
@@ -33,52 +34,51 @@ const experiences = [
         company: 'Sber',
         position: 'Frontend Developer',
         description: `
-        Worked with websites on NextJS/Feature-Sliced Design/Effector tech stack.
-        Conducted maintenance for old and created new projects, added interactive
-        services, charts on ChartJS, and developed web games. In the second year, I
-        took on the duties of a frontend lead for two teams in my department.
+        Worked with websites on NextJS/Feature-Sliced Design/Effector tech stack. Conducted maintenance for old and created new projects, added interactive services, charts on ChartJS, and developed web games. In the second year, I took on the duties of a frontend lead for two teams in my department.
       `,
-        duration: 'April 2021 - April 2023',
+        duration: 'april 2021 - april 2023',
     },
     {
         company: 'Business Integration',
         position: 'Frontend Developer',
         description: `
-        Conducted maintenance for existing Sber projects on NextJS (Typescript).
+        Conducted maintenance for existing Sber projects on NextJS (Next.js).
       `,
-        duration: 'December 2020 - April 2021',
+        duration: 'december 2020 - april 2021',
     },
     {
-        company: 'Triumph group of companies',
+        company: '"Triumph" group of companies',
         position: 'Frontend Developer',
         description: `
-        Wrote SPA games in tandem with another programmer, including Runner, Flappy
-        Bird, Tic-Tac-Toe, Zuma, and others. During training, solved 400 tasks in
-        Pascal language. Learned data types from primitive to graphs and lists,
-        understood some algorithms and OOP. Developed CAD for clothes designing
-        and sewing using Polymer.js (frontend) and Python (backend).
+        Development of CAD for clothes designing and sewing. Tech stack - Polymer.js (frontend) and Python (backend). The task included developing an UI for tools, then algorithms. There were logic of points, lines, arcs and curves, dependency logic between drawing elements, complex operations (folds, pintucks and etc.). Recent months i adapted new programmers in the project and participated in backlog planning.
       `,
-        duration: 'September 2019 - September 2020',
+        duration: 'september 2019 - september 2020',
+    },
+    {
+        company: 'Web games development, Phaser.js',
+        position: 'Developer',
+        description: `
+        Wrote SPA games in tandem with another programmer. Runner, Flappy Bird, tictac-toe, Zuma and others. We shared tasks between us and then merged our
+        branches in github. Was studying programming in Pascal and C# language. Learned data types, understood some algorithms and OOP concepts. Then i wrote games in TypeScript to make a
+        portfolio.
+      `,
+        duration: 'november 2018 - july 2019',
     },
     {
         company: 'RD Express',
         position: 'Developer',
         description: `
-        Developed a Telegram bot to organize fulfillment and simplify the delivery of
-        books from the warehouse to the client. The bot was an internal product
-        focused on a specific company, developed on the Botmother graphical
-        constructor with API connections to Dostavista and MoySklad services.
+        Developed a Telegram bot to organize fulfillment and simplify the delivery of books from the warehouse to the client. The bot was an internal product focused on a specific company, developed on the Botmother graphical constructor with API connections to Dostavista and MoySklad services.
       `,
-        duration: 'June 2018 - November 2018',
+        duration: 'june 2018 - november 2018',
     },
     {
         company: 'GMsite',
         position: 'Web Developer',
         description: `
-        Completed junior tasks such as layout creation and bug fixes in existing
-        projects on JQuery and PHP.
+        Completed junior tasks such as layout creation and bug fixes in existing projects on JQuery and PHP.
       `,
-        duration: 'January 2018 - June 2018',
+        duration: 'january 2018 - june 2018',
     },
 ];
 ---
@@ -86,37 +86,46 @@ const experiences = [
 
 <BaseLayout title={title}>
     <div class="flex flex-col items-center justify-center py-8 text-left">
-
-        <section class="mb-8 flex flex-row items-center max-w-lg">
+        <section class="my-8 flex flex-row items-center self-start">
             <Image src={photo} alt="that's me" class="rounded-full w-32 h-32 object-cover"/>
             <div class="mx-8">
-                <h1 class="text-xl font-bold mb-2 w-64">{name}</h1>
-                <p class="text-gray-400">{description}</p>
+                <h1 class="text-2xl font-bold mb-2 w-64">{name}</h1>
+                <p class="text-gray-300">{description}</p>
             </div>
         </section>
-        <p class="my-2 max-w-lg text-sm">{text}</p>
+        <p class="my-2 self-start text-sm">{text}</p>
         <div class="grid grid-cols-1 gap-8 mt-16">
             {projects.map((project, i) =>
-                i % 2 === 0 ?
-                        <div class="mb-4 flex flex-row">
-                            <Image class="max-h-60 object-cover" src={project.image} alt={project.title}/>
+                <div>
+                        {i % 2 === 0 ?
+                       <div class="mb-4 flex flex-row"> <Image class="max-h-60 object-cover" src={project.image} alt={project.title}/>
                             <div>
                                 <h3 class="text-lg font-semibold mb-1 whitespace-nowrap mx-8">{project.title}</h3>
                                 <span>{project.description}</span>
                             </div>
-                        </div> :
-                        <div class="mb-4 flex flex-row">
+                            </div>
+                        :
+                                <div class="mb-4 flex flex-row">
                             <div>
                                 <h3 class="text-lg font-semibold mb-1 whitespace-nowrap mx-8">{project.title}</h3>
                                 <span>{project.description}</span>
                             </div>
                             <Image class="max-h-60 object-cover" src={project.image} alt={project.title}/>
-                        </div>
+                    </div>
+                        }
+                </div>
             )}
         </div>
 
     </div>
     <section class="py-8">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold mb-8">Technologies</h2>
+            {technologies.map((item) => (
+                        <span class="mb-2">{item}</span> <br />
+                ))}
+        </div>
+    </section>  <section class="py-8">
         <div class="container mx-auto">
             <h2 class="text-3xl font-semibold mb-8">Work Experience</h2>
             {experiences.map(({ company, position, description, duration }, index) => (
