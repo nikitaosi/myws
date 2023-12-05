@@ -6,4 +6,7 @@ const pageTitle = 'Home Page';
 <BaseLayout pageTitle={pageTitle}>
 	<h2>My awesome blog subtitle</h2>
 	<Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+	<script>
+		import "../scripts/menu.js";
+	</script>
 </BaseLayout>

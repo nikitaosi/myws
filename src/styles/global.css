@@ -1,10 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root[data-theme="light"] {
-    --background-color: #e3e3e3;
+    --background-color: #fff;
     --color: #444;
     --heading-color: #222;
-    --link-color: #3273dc;
-    --link-visited-color: #193c75;
+    --elements-color: #3273dc;
+    --borders-color: #d1e3ff;
     --code-background-color: #c7c7c7;
     --theme-slider-initial-transform: 0px;
     --light-theme-indicator-color: #ffcf00;
@@ -15,8 +18,8 @@
     --background-color: rgb(17 16 16);
     --color: #fff;
     --heading-color: #f1f1f1;
-    --link-color: #de9906;
-    --link-visited-color: #966807;
+    --elements-color: #de9906;
+    --borders-color: #624618;
     --code-background-color: #252525;
     --theme-slider-initial-transform: translateX(24px);
     --light-theme-indicator-color: var(--color);
@@ -24,7 +27,7 @@
 }
 
 body {
-    font-family: Intel, sans-serif;
+    font-family: Tahoma;
     margin: auto;
     padding: 20px;
     text-align: left;
@@ -33,6 +36,7 @@ body {
     overflow-wrap: break-word;
     line-height: 1.5;
     color: var(--color);
+    transition: .2s;
 }
 h1,
 h2,
@@ -45,11 +49,13 @@ b {
     color: var(--heading-color);
 }
 a {
-    color: var(--link-color);
+    color: var(--elements-color);
 }
-a:visited {
-    color: var(--link-visited-color);
+
+a .underline {
+    border-bottom: 1px solid var(--elements-color);
 }
+
 nav a {
     margin-right: 10px;
 }

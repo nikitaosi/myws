@@ -1,8 +1,8 @@
 ---
 ---
 <div class="nav-links">
-    <a href="/">main</a>
-    <a href="/work/">work</a>
-    <a href="/projects/">projects</a>
-    <a href="/resume.pdf">resume</a>
+    <a class={Astro.url.pathname.split("/")[1] === "main" ? "underline" : ""} href="/main/">main</a>
+    <a class={Astro.url.pathname.split("/")[1] === "work" ? "underline" : ""} href="/work/">work</a>
+    <a class={Astro.url.pathname.split("/")[1] === "projects" ? "underline" : ""} href="/projects/">projects</a>
+    <a href="/resume.pdf" target="_blank">resume</a>
 </div>

@@ -40,10 +40,12 @@ const { id } = Astro.props;
 
     .light .sun {
         fill: var(--color);
+        transition: .2s;
     }
 
     .dark .moon {
         fill: var(--color);
+        transition: .2s;
     }
 
     .switch {
@@ -66,8 +68,8 @@ const { id } = Astro.props;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: var(--link-color);
-        transition: .4s;
+        background-color: var(--elements-color);
+        transition: .2s;
     }
 
     .slider:before {
@@ -79,11 +81,11 @@ const { id } = Astro.props;
         bottom: 3px;
         background-color: var(--color);
         transform: var(--theme-slider-initial-transform);
-        transition: .4s;
+        transition: .2s;
     }
 
     input:checked + .slider {
-        background-color: var(--link-color);
+        background-color: var(--elements-color);
     }
 
 
