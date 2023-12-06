@@ -1,16 +1,73 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import {Image} from "astro:assets";
-import photo from '../images/photo.jpg';
+import { Image } from 'astro:assets';
+import photo from '/public/images/photo.jpg';
+import star from '/public/icons/star.svg';
 
 const title = "My website";
 const name = "Nikita Osipov";
 const description = "frontend developer";
 const text = 'Hey there! I\'m Nikita, a frontend developer based in Tbilisi, Georgia. I\'m passionate about crafting seamless UIs and solving problems in JavaScript and Typescript. Have some knowledge of NodeJS frameworks and Docker. Now on the lookout for exciting new challenges!'
-const technologies = ['NextJS', 'Astro', 'Typescript', 'React', 'Tailwind CSS', 'NestJS', 'Strapi', 'Node', 'ExpressJS', 'Docker', 'Gitlab CI', 'Python', 'C#' ];
+const technologies = [
+{
+    name: 'NextJS',
+    primary: true
+},
+{
+    name: 'Astro',
+    primary: false
+},
+{
+    name: 'Typescript',
+    primary: true
+},
+{
+    name: 'React',
+    primary: true
+},
+{
+    name: 'SCSS',
+    primary: true
+},
+{
+    name: 'Tailwind CSS',
+    primary: true
+},
+{
+    name: 'NestJS',
+    primary: false
+},
+{
+    name: 'Strapi',
+    primary: false
+},
+{
+    name: 'NodeJS',
+    primary: false
+},
+{
+    name: 'ExpressJS',
+    primary: false
+},
+{
+    name: 'Docker',
+    primary: false
+},
+{
+    name: 'Gitlab CI',
+    primary: false
+},
+{
+    name: 'Python',
+    primary: false
+},
+{
+    name:'C#',
+    primary: false
+}
+]
 ---
-
 
 <BaseLayout title={title}>
     <section class="flex flex-col items-center justify-center py-8 text-left">
@@ -28,8 +85,11 @@ const technologies = ['NextJS', 'Astro', 'Typescript', 'React', 'Tailwind CSS', 
             <h2 class="text-2xl font-semibold mb-8">Technologies</h2>
         <div class="container flex flex-row flex-wrap max-w-md">
             {technologies.map((item) => (
-                        <div class="p-2 m-2 border-[color:var(--borders-color)] border rounded-xl whitespace-nowrap">{item}</div>
-                ))}
+                <div class="p-2 m-2 border-[color:var(--borders-color)] relative border rounded-xl whitespace-nowrap">
+                    { item.name }
+                    { item.primary && <Image class="star absolute top-[-5px] right-[-5px]" src={star} alt="Star Icon" /> }
+                </div>
+            ))}
         </div>
     </section>
 </BaseLayout>

@@ -12,6 +12,7 @@
     --theme-slider-initial-transform: 0px;
     --light-theme-indicator-color: #ffcf00;
     --dark-theme-indicator-color: var(--color);
+    --inv: 0;
 }
 
 :root[data-theme="dark"] {
@@ -24,6 +25,7 @@
     --theme-slider-initial-transform: translateX(24px);
     --light-theme-indicator-color: var(--color);
     --dark-theme-indicator-color: #ffcf00;
+    --inv: 1;
 }
 
 body {
@@ -92,4 +94,7 @@ blockquote {
     padding: 2px 0 2px 20px;
     margin: 0;
     font-style: italic;
+}
+.star {
+    filter: invert(var(--inv));
 }
