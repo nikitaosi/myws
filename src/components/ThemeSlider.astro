@@ -1,99 +1,21 @@
 ---
-const { id } = Astro.props;
+import {Icon} from "astro-icon";
+
 ---
-<div class="toggle-container">
-    <span class="light">
-       <svg width="18px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path class="sun" fill-rule="evenodd" d="M12 17.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 1.5a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm12-7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1 0-1.6h2.4a.8.8 0 0 1 .8.8zM4 12a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1 0-1.6h2.5a.8.8 0 0 1 .8.8zm16.5-8.5a.8.8 0 0 1 0 1l-1.8 1.8a.8.8 0 0 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM6.3 17.7a.8.8 0 0 1 0 1l-1.7 1.8a.8.8 0 1 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM12 0a.8.8 0 0 1 .8.8v2.5a.8.8 0 0 1-1.6 0V.8A.8.8 0 0 1 12 0zm0 20a.8.8 0 0 1 .8.8v2.4a.8.8 0 0 1-1.6 0v-2.4a.8.8 0 0 1 .8-.8zM3.5 3.5a.8.8 0 0 1 1 0l1.8 1.8a.8.8 0 1 1-1 1L3.5 4.6a.8.8 0 0 1 0-1zm14.2 14.2a.8.8 0 0 1 1 0l1.8 1.7a.8.8 0 0 1-1 1l-1.8-1.7a.8.8 0 0 1 0-1z"/>
-        </svg>
-    </span>
-    <div>
-        <label class="switch" aria-label="Switch theme">
-            <input id={id} class="theme-toggle" type="checkbox" onclick="togglePreference()" />
-            <span class="slider round"></span>
-        </label>
-    </div>
-    <span class="dark">
-        <svg width="18px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path class="moon" fill-rule="evenodd" d="M16.5 6A10.5 10.5 0 0 1 4.7 16.4 8.5 8.5 0 1 0 16.4 4.7l.1 1.3zm-1.7-2a9 9 0 0 1 .2 2 9 9 0 0 1-11 8.8 9.4 9.4 0 0 1-.8-.3c-.4 0-.8.3-.7.7a10 10 0 0 0 .3.8 10 10 0 0 0 9.2 6 10 10 0 0 0 4-19.2 9.7 9.7 0 0 0-.9-.3c-.3-.1-.7.3-.6.7a9 9 0 0 1 .3.8z"/>
-        </svg>
-    </span>
+
+<div class="inline-flex items-center">
+    <label for="themeSwitch"><select class="outline-none dark:bg-[#121212] bg-white" name="themeSwitch" id="themeSwitch">
+        <option value="system">🌒</option>
+        <option value="dark">🌛</option>
+        <option value="light">🌞</option>
+    </select></label>
 </div>
 
+<script src="/src/lib/theme-util.ts" />
+
 <style>
-    .theme-toggle {}
-
-    .toggle-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5em;
-    }
-
-    .light {
-        color: var(--light-theme-indicator-color);
-    }
-
-    .dark {
-        color: var(--dark-theme-indicator-color);
-    }
-
-    .light .sun {
-        fill: var(--color);
-        transition: .2s;
-    }
-
-    .dark .moon {
-        fill: var(--color);
-        transition: .2s;
-    }
-
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 48px;
-        height: 24px;
-    }
-
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--elements-color);
-        transition: .2s;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 18px;
-        width: 18px;
-        left: 3px;
-        bottom: 3px;
-        background-color: var(--color);
-        transform: var(--theme-slider-initial-transform);
-        transition: .2s;
-    }
-
-    input:checked + .slider {
-        background-color: var(--elements-color);
-    }
-
-
-    .slider.round {
-        border-radius: 34px;
-    }
-
-    .slider.round:before {
-        border-radius: 50%;
+    :global(.dark) {
+        color-scheme: dark;
     }
 </style>
+

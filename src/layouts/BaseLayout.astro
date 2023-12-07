@@ -12,6 +12,11 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="title" content={title} />
+    <script is:inline>
+        const isDarkMode = localStorage.getItem('theme');
+        const theme = isDarkMode ? 'dark' : 'light';
+        document.querySelector("html").className = theme;
+    </script>
 </head>
 <body>
     <div class="max-w-2xl h-screen m-auto">
