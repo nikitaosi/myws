@@ -2,16 +2,10 @@
 import Social from './Social.astro';
 ---
 
-<style>
-    footer {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-</style>
 
-<footer>
+<footer class="flex flex-wrap gap-6 mt-12 max-w-sm">
     <Social platform="telegram" href="https://t.me/osi_nv" />
     <Social platform="github" href="https://github.com/nikitaosi" />
     <Social platform="linkedin" href="https://www.linkedin.com/in/nikita-osipov-84a009152/" />
+    <Social class="flex basis-1" platform="nikitaosipov.51@gmail.com" href="mailto:nikitaosipov.51@gmail.com" />
 </footer>

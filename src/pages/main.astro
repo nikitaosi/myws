@@ -8,7 +8,7 @@ import star from '/public/icons/star.svg';
 const title = "My website";
 const name = "Nikita Osipov";
 const description = "frontend developer";
-const text = 'Hey there! I\'m Nikita, a frontend developer based in Tbilisi, Georgia. I\'m passionate about crafting seamless UIs and solving problems in JavaScript and Typescript. Have some knowledge of NodeJS frameworks and Docker. Now on the lookout for exciting new challenges!'
+const text = "Hey! I\'m Nikita, a frontend enthusiast based in Tbilisi, Georgia. With 3+ years of commercial experience in the JS/TS frontend world, specializing in React.js scope, and over 5 years of versatile developer background, I\'m passionate about creating user-friendly web apps and solving unique challenges.  <br /> Versed in architectural and design patterns such as Feature-Slices Design and Clean Architecture, I also have some skills in backend frameworks (NestJS, Express) and Docker. Currently, I\'m on the lookout for new challenges! <br /> <br /> If you\'d like to get in touch, feel free to reach out to me via Telegram or email using details below.";
 const technologies = [
 {
     name: 'NextJS',
@@ -78,11 +78,11 @@ const technologies = [
                 <p class="opacity-80">{description}</p>
             </div>
         </div>
-    <p class="my-2 self-start text-md">{text}</p>
+    <p class="my-2 self-start text-md" set:html={text} />
     </section>
 
     <section class="pt-8">
-            <h2 class="text-2xl font-semibold mb-8">Technologies</h2>
+            <h2 class="text-2xl font-semibold mb-8">Skills</h2>
         <div class="container flex flex-row flex-wrap max-w-md">
             {technologies.map((item) => (
                 <div class="p-2 m-2 border-[color:var(--borders-color)] relative border rounded-xl whitespace-nowrap">
