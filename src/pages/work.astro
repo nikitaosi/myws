@@ -5,77 +5,63 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = "Work experience";
 
 const experiences = [
-    {
-        company: 'Sber',
-        position: 'Frontend Developer',
-        description: `
-        Worked with websites on NextJS/Feature-Sliced Design/Effector tech stack. Conducted maintenance for old and created new projects, added interactive services, charts on ChartJS, and developed web games. In the second year, I took on the duties of a frontend lead for two teams in my department.
-      `,
-        duration: 'april 2021 - april 2023',
-    },
-    {
-        company: 'Business Integration',
-        position: 'Frontend Developer',
-        description: `
-        Conducted maintenance for existing Sber projects on NextJS (Next.js).
-      `,
-        duration: 'december 2020 - april 2021',
-    },
-    {
-        company: '"Triumph" group of companies',
-        position: 'Frontend Developer',
-        description: `
-        Development of CAD for clothes designing and sewing. Tech stack - Polymer.js (frontend) and Python (backend). The task included developing an UI for tools, then algorithms. There were logic of points, lines, arcs and curves, dependency logic between drawing elements, complex operations (folds, pintucks and etc.). Recent months i adapted new programmers in the project and participated in backlog planning.
-      `,
-        duration: 'september 2019 - september 2020',
-    },
-    {
-        company: 'Web games development, Phaser.js',
-        position: 'Developer',
-        description: `
-        Wrote SPA games in tandem with another programmer. Runner, Flappy Bird, tictac-toe, Zuma and others. We shared tasks between us and then merged our
-        branches in github. Was studying programming in Pascal and C# language. Learned data types, understood some algorithms and OOP concepts. Then i wrote games in TypeScript to make a
-        portfolio.
-      `,
-        duration: 'november 2018 - july 2019',
-    },
-    {
-        company: 'RD Express',
-        position: 'Developer',
-        description: `
-        Developed a Telegram bot to organize fulfillment and simplify the delivery of books from the warehouse to the client. The bot was an internal product focused on a specific company, developed on the Botmother graphical constructor with API connections to Dostavista and MoySklad services.
-      `,
-        duration: 'june 2018 - november 2018',
-    },
-    {
-        company: 'GMsite',
-        position: 'Web Developer',
-        description: `
-        Completed junior tasks such as layout creation and bug fixes in existing projects on JQuery and PHP.
-      `,
-        duration: 'january 2018 - june 2018',
-    },
+  {
+    company: 'Sber',
+    position: 'Frontend Developer',
+    description: 'Worked with websites on NextJS/Feature-Sliced Design/Effector tech stack. Conducted maintenance for old and created new projects, added interactive services, charts on ChartJS, and developed web games. In the second year, I took on the duties of a frontend lead for two teams in my department.',
+    duration: 'april 2021 - april 2023',
+  },
+  {
+    company: 'Business Integration',
+    position: 'Frontend Developer',
+    description: 'Conducted maintenance for existing Sber projects on NextJS (Next.js).',
+    duration: 'december 2020 - april 2021',
+  },
+  {
+    company: '"Triumph" group of companies',
+    position: 'Frontend Developer',
+    description: 'Development of CAD for clothes designing and sewing. Tech stack - Polymer.js (frontend) and Python (backend). The task included developing an UI for tools, then algorithms. There were logic of points, lines, arcs and curves, dependency logic between drawing elements, complex operations (folds, pintucks and etc.). Recent months i adapted new programmers in the project and participated in backlog planning.',
+    duration: 'september 2019 - september 2020',
+  },
+  {
+    company: 'Web games development, Phaser.js',
+    position: 'Developer',
+    description: 'Wrote SPA games in tandem with another programmer. Runner, Flappy Bird, tictac-toe, Zuma and others. We shared tasks between us and then merged our branches in github. Was studying programming in Pascal and C# language. Learned data types, understood some algorithms and OOP concepts. Then i wrote games in TypeScript to make a portfolio.',
+    duration: 'november 2018 - july 2019',
+  },
+  {
+    company: 'RD Express',
+    position: 'Developer',
+    description: 'Developed a Telegram bot to organize fulfillment and simplify the delivery of books from the warehouse to the client. The bot was an internal product focused on a specific company, developed on the Botmother graphical constructor with API connections to Dostavista and MoySklad services.',
+    duration: 'june 2018 - november 2018',
+  },
+  {
+    company: 'GMsite',
+    position: 'Web Developer',
+    description: 'Completed junior tasks such as layout creation and bug fixes in existing projects on JQuery and PHP.',
+    duration: 'january 2018 - june 2018',
+  },
 ];
 ---
 
 
 <BaseLayout title={title}>
-    <div class="flex flex-col items-center justify-center py-8 text-left">
-       <section class="py-8">
-            <div class="container mx-auto">
-                <h2 class="text-3xl font-semibold mb-8">{title}</h2>
-                {experiences.map(({ company, position, description, duration }, index) => (
-                        <div class="mb-8" key={index}>
-                            <h3 class="text-xl font-semibold">{company}</h3>
-                            <span class="mb-2">{position}</span>
-                            <br />
-                            <span class="mt-2">{duration}</span>
-                            <br />
-                            <br />
-                            <span>{description}</span>
-                        </div>
-                    ))}
-            </div>
-        </section>
-    </div>
+  <div class="flex flex-col items-center justify-center py-8 text-left">
+    <section class="py-8">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-semibold mb-8">{title}</h2>
+        {experiences.map(({company, position, description, duration}, index) => (
+          <div class="mb-8">
+            <h3 class="text-xl font-semibold">{company}</h3>
+            <span class="mb-2">{position}</span>
+            <br/>
+            <span class="mt-2">{duration}</span>
+            <br/>
+            <br/>
+            <span>{description}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
 </BaseLayout>

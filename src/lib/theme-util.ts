@@ -4,7 +4,7 @@
   ? "dark"
   : "light";
 
-  console.log('theme');
+  console.log('theme -',theme);
 
   select.value = theme ?? systemTheme;
 

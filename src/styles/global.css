@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-VariableFont_slnt,wght.ttf') format('ttf');
+}
+
 body {
-    font-family: Intel;
+    font-family: 'Inter', monospace;
     padding: 20px;
     word-wrap: break-word;
     overflow-wrap: break-word;
