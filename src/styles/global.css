@@ -7,8 +7,10 @@
     src: url('/fonts/Inter-VariableFont_slnt,wght.ttf') format('ttf');
 }
 
+
 body {
-    font-family: 'Inter', monospace;
+    font-family: 'Inter', system-ui;
+    font-weight: 400;
     padding: 20px;
     word-wrap: break-word;
     overflow-wrap: break-word;

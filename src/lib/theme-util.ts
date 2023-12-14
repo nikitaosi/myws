@@ -1,23 +1,9 @@
-  const select = document.getElementById("themeSwitch") as HTMLSelectElement;
-  const theme = localStorage.getItem("theme");
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-  ? "dark"
-  : "light";
-
-  console.log('theme -',theme);
-
-  select.value = theme ?? systemTheme;
-
-  function updateTheme(value) {
-  const theme = value === "system" ? systemTheme : value;
-  document.documentElement.classList.remove("light", "dark");
-  document.documentElement.classList.add(theme);
+const getSystemTheme = () => matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+const setTheme = (value: string) => {
+  document.documentElement.className = value === "system" ? getSystemTheme() : value;
   localStorage.setItem("theme", value);
-}
-
-  updateTheme(select.value);
-
-  select.addEventListener("change", (event: Event) => {
-  const select = event.target as HTMLSelectElement;
-  updateTheme(select.value);
-});
+};
+const themeSwitch = document.getElementById("themeSwitch") as HTMLSelectElement;
+themeSwitch.value = localStorage.getItem("theme");
+setTheme(themeSwitch.value);
+themeSwitch.addEventListener("change", (event) => setTheme((event.target as HTMLSelectElement).value));
