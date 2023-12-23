@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "strict": true,
     "name": "@astrojs/ts-plugin",
     "jsx": "react-jsx",
     "jsxImportSource": "preact"

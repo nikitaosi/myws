@@ -4,6 +4,9 @@ const setTheme = (value: string) => {
   localStorage.setItem("theme", value);
 };
 const themeSwitch = document.getElementById("themeSwitch") as HTMLSelectElement;
-themeSwitch.value = localStorage.getItem("theme");
-setTheme(themeSwitch.value);
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme) {
+  themeSwitch.value = currentTheme
+  setTheme(themeSwitch.value);
+}
 themeSwitch.addEventListener("change", (event) => setTheme((event.target as HTMLSelectElement).value));
