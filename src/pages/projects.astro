@@ -2,53 +2,55 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import {Image} from "astro:assets";
-import extra from '../../public/images/img.png';
-import game from '../../public/images/img2.png';
+import extra from '/images/img.png';
+import game from '/images/img2.png';
+import PetCard from "../components/PetCard.astro";
 
 const title = "My projects";
 const projects = [
-    {
-        title: "Expense tracker",
-        image: extra,
-        description: "Brief description of Expense tracker.",
-    },
-    {
-        title: "Game",
-        image: game,
-        description: "Brief description of Game.",
-    },
-    // {
-    //     title: "My website",
-    //     image: '',
-    //     description: "You're here now",
-    // }
+  {
+    title: "Expense tracker",
+    image: extra,
+    description: "Brief description of Expense tracker.",
+  },
+  {
+    title: "Game",
+    image: game,
+    description: "Brief description of Game.",
+  },
+  // {
+  //   title: "My website",
+  //   image: '',
+  //   description: "You're here now",
+  // }
 ];
 
 ---
 
 <BaseLayout title={title}>
-    <section class="flex flex-col items-center justify-center py-8 text-left w-full">
-        <div class="grid grid-cols-1 gap-8 mt-16">
-            {projects.map((project, i) =>
-                <div>
-                    {i % 2 === 0 ?
-                       <div class="mb-4 flex flex-col sm:flex-row"> <Image class="max-h-60 object-cover" src={project.image} alt={project.title}/>
-                            <div class="my-8">
-                                <h3 class="text-lg font-semibold mb-1 whitespace-nowrap mx-8">{project.title}</h3>
-                                <span>{project.description}</span>
-                            </div>
-                        </div>
-                    :
-                        <div class="mb-4 flex flex-col sm:flex-row">
-                            <div class="my-8">
-                                <h3 class="text-lg font-semibold mb-1 whitespace-nowrap mx-8">{project.title}</h3>
-                                <span>{project.description}</span>
-                            </div>
-                            <Image class="max-h-60 object-cover" src={project.image} alt={project.title}/>
-                        </div>
-                    }
-                </div>
-            )}
-        </div>
-    </section>
+  <section class="flex flex-col items-center justify-center py-8 text-left w-full">
+    <div class="grid grid-cols-1 gap-8 mt-16">
+      {projects.map((project) =>
+        <PetCard content={project} />
+        <!--<div>-->
+        <!--    {i % 2 === 0 ?-->
+        <!--       <div class="mb-4 flex flex-col sm:flex-row"> <Image class="max-h-60 object-cover" src={project.image} alt={project.title}/>-->
+        <!--            <div class="my-8">-->
+        <!--                <h3 class="text-lg font-semibold mb-1 whitespace-nowrap mx-8">{project.title}</h3>-->
+        <!--                <span>{project.description}</span>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    :-->
+        <!--        <div class="mb-4 flex flex-col sm:flex-row">-->
+        <!--            <div class="my-8">-->
+        <!--                <h3 class="text-lg font-semibold mb-1 whitespace-nowrap mx-8">{project.title}</h3>-->
+        <!--                <span>{project.description}</span>-->
+        <!--            </div>-->
+        <!--            <Image class="max-h-60 object-cover" src={project.image} alt={project.title}/>-->
+        <!--        </div>-->
+        <!--    }-->
+        <!--</div>-->
+      )}
+      </div>
+  </section>
 </BaseLayout>
