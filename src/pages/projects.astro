@@ -2,8 +2,8 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import {Image} from "astro:assets";
-import extra from '/images/img.png';
-import game from '/images/img2.png';
+import extra from '../images/img.png';
+import game from '../images/img2.png';
 import PetCard from "../components/PetCard.astro";
 
 const title = "My projects";
@@ -12,23 +12,26 @@ const projects = [
     title: "Expense tracker",
     image: extra,
     description: "Brief description of Expense tracker.",
+    technologies: [{name: 'NextJS', color: 'bg-gray-900'}, {name: 'Tailwind', color: 'bg-sky-400'}, {name: 'TypeScript', color: 'bg-blue-900'}],
   },
   {
     title: "Game",
     image: game,
     description: "Brief description of Game.",
+    technologies: [{name: 'NextJS', color: 'bg-gray-900'}, {name: 'Tailwind', color: 'bg-sky-400'}, {name: 'TypeScript', color: 'bg-blue-900'}],
   },
-  // {
-  //   title: "My website",
-  //   image: '',
-  //   description: "You're here now",
-  // }
+  {
+    title: "My website",
+    image: '/images/photo.jpg',
+    description: "You're here now",
+    technologies: [{name: 'NextJS', color: 'bg-gray-900'}, {name: 'Tailwind', color: 'bg-sky-400'}, {name: 'TypeScript', color: 'bg-blue-900'}],
+  }
 ];
 
 ---
 
 <BaseLayout title={title}>
-  <section class="flex flex-col items-center justify-center py-8 text-left w-full">
+  <section class="flex flex-col items-center justify-center py-8 text-left">
     <div class="grid grid-cols-1 gap-8 mt-16">
       {projects.map((project) =>
         <PetCard content={project} />

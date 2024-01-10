@@ -1,8 +1,9 @@
 ---
+const pathname = Astro.url.pathname;
 ---
 <div class="nav-links flex gap-4 opacity-80">
-    <a class={Astro.url.pathname.split("/")[1] === "main" ? "underline" : ""} href="/main/">main</a>
-    <a class={Astro.url.pathname.split("/")[1] === "work" ? "underline" : ""} href="/work/">work</a>
-    <a class={Astro.url.pathname.split("/")[1] === "projects" ? "underline" : ""} href="/projects/">projects</a>
+    <a class={pathname === "/" ? "underline" : ""} href="/">main</a>
+    <a class={pathname === "/work/" ? "underline" : ""} href="/work/">work</a>
+    <a class={pathname === "/projects/" ? "underline" : ""} href="/projects/">projects</a>
     <a href="/resume.pdf" target="_blank">resume</a>
 </div>

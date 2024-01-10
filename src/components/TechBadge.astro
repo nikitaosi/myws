@@ -1,0 +1,10 @@
+---
+const { color, name } = Astro.props.item;
+import {Image} from 'astro:assets';
+
+---
+
+<div class={`rounded px-4 py-1 m-2 ${color} w-fit`}>
+  <p class="text-sm">{name}</p>
+
+</div>

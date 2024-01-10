@@ -46,11 +46,10 @@ const experiences = [
 
 
 <BaseLayout title={title}>
-  <div class="flex flex-col items-center justify-center py-8 text-left">
-    <section class="py-8">
-      <div class="container mx-auto">
+  <section class="flex flex-col items-center justify-center py-16 text-left">
+      <div class="mx-auto">
         <h2 class="text-3xl font-semibold mb-8">{title}</h2>
-        {experiences.map(({company, position, description, duration}, index) => (
+        {experiences.map(({company, position, description, duration}) => (
           <div class="mb-8">
             <h3 class="text-xl font-semibold">{company}</h3>
             <span class="mb-2">{position}</span>
@@ -62,6 +61,5 @@ const experiences = [
           </div>
         ))}
       </div>
-    </section>
-  </div>
+  </section>
 </BaseLayout>
