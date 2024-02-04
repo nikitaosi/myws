@@ -8,37 +8,37 @@ const experiences = [
   {
     company: 'Sber',
     position: 'Frontend Developer',
-    description: 'Worked with websites on NextJS/Feature-Sliced Design/Effector tech stack. Conducted maintenance for old and created new projects, added interactive services, charts on ChartJS, and developed web games. In the second year, I took on the duties of a frontend lead for two teams in my department.',
+    descriptionList: ['Launched 2 new projects and refactored 3 existing ones.', 'Developed six gaming web applications as part of special projects, and created two educational courses about investments.','Participated in the development of a unified CMS for content websites in the cluster.', 'Mentored three developers and led two product teams.'],
     duration: 'april 2021 - april 2023',
   },
   {
     company: 'Business Integration',
     position: 'Frontend Developer',
-    description: 'Conducted maintenance for existing Sber projects on NextJS (Next.js).',
+    descriptionList: ['Refactored a service dashboard displaying the internal services status at the bank.'],
     duration: 'december 2020 - april 2021',
   },
   {
     company: '"Triumph" group of companies',
     position: 'Frontend Developer',
-    description: 'Development of CAD for clothes designing and sewing. Tech stack - Polymer.js (frontend) and Python (backend). The task included developing an UI for tools, then algorithms. There were logic of points, lines, arcs and curves, dependency logic between drawing elements, complex operations (folds, pintucks and etc.). Recent months i adapted new programmers in the project and participated in backlog planning.',
+    descriptionList: ['Developed around 80 tools for the browser-based editor for clothing items, including UI and functionality.', 'Participated in the development of tools for sewing patterns on a 3D mannequin.','Contributed to backlog planning.', 'Mentored 6 new programmers.'],
     duration: 'september 2019 - september 2020',
   },
   {
     company: 'Web games development, Phaser.js',
     position: 'Developer',
-    description: 'Wrote SPA games in tandem with another programmer. Runner, Flappy Bird, tictac-toe, Zuma and others. We shared tasks between us and then merged our branches in github. Was studying programming in Pascal and C# language. Learned data types, understood some algorithms and OOP concepts. Then i wrote games in TypeScript to make a portfolio.',
+    descriptionList: ['Wrote about six games in TypeScript and Phaser.js for the portfolio.', 'Completed approximately 400 tasks on basic algorithms during training.','Collaborated with another programmer to develop a commercial game-special project, a runner based on duck stories.'],
     duration: 'november 2018 - july 2019',
   },
   {
     company: 'RD Express',
     position: 'Developer',
-    description: 'Developed a Telegram bot to organize fulfillment and simplify the delivery of books from the warehouse to the client. The bot was an internal product focused on a specific company, developed on the Botmother graphical constructor with API connections to Dostavista and MoySklad services.',
+    descriptionList: ['Designed and developed Telegram, WhatsApp, VK, and Viber bots, consisting of 4 separate services (showcase, product search, delivery processing, inventory checking) for organizing fulfillment for a comics delivery company.', 'Integrated with external services Dostavista and MoySklad.'],
     duration: 'june 2018 - november 2018',
   },
   {
     company: 'GMsite',
     position: 'Web Developer',
-    description: 'Completed junior tasks such as layout creation and bug fixes in existing projects on JQuery and PHP.',
+    descriptionList: ['Closed around 100 support tasks for existing clients of the company.','Created a new design from scratch for two websites, totaling around 20 separate pages.'],
     duration: 'january 2018 - june 2018',
   },
 ];
@@ -49,15 +49,21 @@ const experiences = [
   <section class="flex flex-col items-center justify-center py-16 text-left">
       <div class="mx-auto">
         <h2 class="text-3xl font-semibold mb-8">{title}</h2>
-        {experiences.map(({company, position, description, duration}) => (
-          <div class="mb-8">
+        {experiences.map(({company, position, descriptionList, duration}) => (
+          <div class="mb-16">
             <h3 class="text-xl font-semibold">{company}</h3>
             <span class="mb-2">{position}</span>
             <br/>
             <span class="mt-2">{duration}</span>
             <br/>
             <br/>
-            <span>{description}</span>
+              <ul class="list-disc pl-4">
+                {
+                  descriptionList.map((item) => (
+                  <li>{item}</li>
+                ))
+                }
+              </ul>
           </div>
         ))}
       </div>
