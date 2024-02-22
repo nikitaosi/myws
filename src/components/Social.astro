@@ -1,5 +1,10 @@
 ---
-const { href, platform } = Astro.props;
+const { href, platform, isEmail } = Astro.props;
 ---
-<a href={href}>{platform}</a>
+
+{isEmail ?
+<a href={href} target="_blank">{platform}</a>
+  :
+<a href={href} target="_blank"
+   class="after:content-['➜'] after:ml-1 after:opacity-0 hover:after:opacity-100 after:transition-all">{platform}</a>}
 
