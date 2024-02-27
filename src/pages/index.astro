@@ -8,7 +8,7 @@ import photo from '../images/photo.jpg';
 const title = "My website";
 const name = "Nikita Osipov";
 const description = "frontend developer";
-const aboutMe = "Hey! I\'m Nikita, a frontend enthusiast based in Tbilisi, Georgia. With 3+ years of commercial experience in the JS/TS frontend world, specializing in React.js scope, and over 5 years of versatile developer background, I\'m passionate about creating user-friendly web apps and solving unique problems. <br /> Versed in architectural and design patterns such as Domain Driven Design, Feature-Sliced Design and Clean Architecture. I also have some skills in backend frameworks (NestJS, Express) and Docker. <br /> <br />  Currently, actively seeking a new project!";
+const aboutMe = "Hey! I\'m Nikita, a frontend enthusiast based in Tbilisi, Georgia. With 3+ years of commercial experience in the JS/TS frontend world, specializing in React.js scope, and over 5 years of versatile developer background, I\'m passionate about creating user-friendly web apps and solving unique problems. \n Versed in architectural and design patterns such as Domain Driven Design, Feature-Sliced Design and Clean Architecture. I also have some skills in backend frameworks (NestJS, Express) and Docker. <br /> <br />  Currently, actively seeking a new project!";
 const aboutMeGray = "If you\'d like to get in touch, feel free to reach out to me via Telegram or email using details below.";
 const technologies = [
 	{ name: 'JavaScript', primary: true },
@@ -60,8 +60,13 @@ const technologies = [
 			<Image src={photo} alt="that's me" class="w-32 h-32 object-cover rounded-full dark:grayscale-[20%]"/>
 		</div>
 		<Contacts/>
-		<p class="my-2 self-start text-md" set:html={aboutMe}/>
-		<p class="my-2 self-start text-md dark:text-gray-400 text-gray-700" set:html={aboutMeGray}/>
+		<p class="my-2 self-start text-md">Hey! I&rsquo;m Nikita, a&nbsp;frontend enthusiast based in&nbsp;Tbilisi, Georgia. With 3+&nbsp;years of&nbsp;commercial
+			experience in&nbsp;the JS/TS frontend world, specializing in&nbsp;React.js scope, and over 5&nbsp;years of&nbsp;versatile
+			developer background, I&rsquo;m passionate about creating user-friendly web apps and solving unique problems.
+			Versed in&nbsp;architectural and design patterns such as&nbsp;Domain Driven Design, Feature-Sliced Design and
+			Clean Architecture. I&nbsp;also have some skills in&nbsp;backend frameworks (NestJS, Express) and Docker.</p>
+		<p class="my-2 self-start text-md">Currently, actively seeking a&nbsp;new project!</p>
+		<p class="my-2 self-start text-md dark:text-gray-400 text-gray-700">If&nbsp;you&rsquo;d like to&nbsp;get in&nbsp;touch, feel free to&nbsp;reach out to&nbsp;me&nbsp;via Telegram or&nbsp;email	using details below.</p>
 	</section>
 
 	<section class="pt-8">
