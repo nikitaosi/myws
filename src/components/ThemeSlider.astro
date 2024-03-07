@@ -1,3 +1,6 @@
+---
+const theme = Astro.cookies.get('theme')?.value;
+---
 
 <!--<div class="inline-flex items-center">-->
 <!--    <label for="themeSwitch" title="Switch between dark and light mode" aria-label="Switch between dark and light mode"><select class="cursor-pointer shadow-none outline-none dark:bg-[#121212] bg-white" name="themeSwitch" id="themeSwitch">-->
@@ -7,8 +10,9 @@
 <!--    </select></label>-->
 <!--</div>-->
 
+
 <label class="theme-toggle" title="Toggle theme">
-  <input type="checkbox" name="theme_switch"/>
+  <input type="checkbox" name="theme_switch" checked={theme === 'dark'} />
   <span class="theme-toggle-sr">Toggle theme</span>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -28,12 +32,11 @@
     </g>
   </svg>
 </label>
-
 <script src="/src/lib/theme-util.ts" />
 
-<style>
-    :global(.dark) {
-        color-scheme: dark;
-    }
-</style>
 
+<style>
+  :global(.dark) {
+    color-scheme: dark;
+  }
+</style>

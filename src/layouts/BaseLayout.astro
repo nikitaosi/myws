@@ -4,28 +4,30 @@ import Contacts from '../components/Contacts.astro';
 import '../styles/global.css';
 import '../styles/expand.min.css';
 import { ViewTransitions } from 'astro:transitions';
-
 const { title } = Astro.props;
 ---
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="title" content={title} />
-    <title>{title}</title>
-    <ViewTransitions />
-    <script is:inline>
-            const storedTheme = localStorage.getItem('theme');
-            document.documentElement.className = storedTheme;
-        </script>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="title" content={title} />
+  <title>{title}</title>
+  <ViewTransitions />
+  <script>
+    import { getCookie } from '../lib/helpers';
+    const theme = getCookie('theme');
+    document.documentElement.className = theme || 'light';
+    const checkbox = document.querySelector("input[name=theme_switch]") as HTMLInputElement;
+    checkbox!.checked = theme === "dark";
+  </script>
 </head>
 <body>
     <div class="max-w-2xl mx-auto">
-        <Header/>
-        <slot/>
-        <Contacts/>
+        <Header />
+        <slot />
+        <Contacts />
     </div>
 </body>
 </html>
