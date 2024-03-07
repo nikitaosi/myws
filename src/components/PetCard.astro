@@ -3,20 +3,16 @@ const {title, image, description, technologies} = Astro.props.content;
 import {Image} from 'astro:assets';
 import TechBadge from "./TechBadge.astro";
 
-type Technology = {
-  name: string,
-}
-
 ---
 
 
 
-<div class="border rounded-md p-4 border-amber-200">
+<div class="border rounded-[20px] p-4 border-[rgb(var(--color-card-muted))]">
   <h2 class="font-bold">{title}</h2>
   <!--<Image image alt=""/>-->
   <p>{description}</p>
   <div class="flex flex-row">
-    {technologies.map((item: Technology) => (
+    {technologies.map((item: {name: string}) => (
       <TechBadge item={item}/>
     ))}
   </div>
