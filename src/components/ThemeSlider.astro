@@ -20,7 +20,7 @@ const theme = Astro.cookies.get('theme')?.value;
     width="2em"
     height="2em"
     fill="currentColor"
-    class="theme-toggle__expand"
+    class="theme-toggle__expand hover:fill-[rgb(var(--color-accent))] transition"
     viewBox="0 0 32 32"
   >
     <clipPath id="theme-toggle__expand__cutout">
