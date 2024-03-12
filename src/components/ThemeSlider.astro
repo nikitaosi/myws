@@ -11,7 +11,7 @@ const theme = Astro.cookies.get('theme')?.value;
 <!--</div>-->
 
 
-<label class="theme-toggle" title="Toggle theme">
+<label class="theme-toggle absolute top-0 right-0" title="Toggle theme">
   <input type="checkbox" name="theme_switch" checked={theme === 'dark'} />
   <span class="theme-toggle-sr">Toggle theme</span>
   <svg
@@ -20,7 +20,7 @@ const theme = Astro.cookies.get('theme')?.value;
     width="2em"
     height="2em"
     fill="currentColor"
-    class="theme-toggle__expand hover:fill-[rgb(var(--color-accent))] transition"
+    class="theme-toggle__expand sm:hover:fill-[rgb(var(--color-accent))] transition"
     viewBox="0 0 32 32"
   >
     <clipPath id="theme-toggle__expand__cutout">

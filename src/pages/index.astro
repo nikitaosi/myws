@@ -50,14 +50,14 @@ const technologies = [
 
 <BaseLayout title={name}>
 	<section class="flex flex-col items-center justify-center py-8 text-left">
-		<div class="w-full mt-10 flex flex-row items-end self-start justify-between">
+		<div class="w-full mt-10 flex flex-row items-center self-start justify-between sm:items-end">
 			<div class="flex flex-col align-middle">
 				<p class="text-base mb-1.5 font-medium select-none">{description}</p>
-				<h1 class="text-5xl font-bold mb-2 max-w-64 whitespace-nowrap select-none">{name}</h1>
+				<h1 class="text-3xl md:text-5xl font-bold mb-2 max-w-64 whitespace-nowrap select-none">{name}</h1>
 			</div>
 			<Image src={photo} alt="that's me" class="w-32 h-32 object-cover rounded-full dark:grayscale-[20%] select-none"/>
 		</div>
-		<Contacts/>
+		<Contacts />
 		<p class="my-2 self-start text-md">Hey! I&rsquo;m Nikita, a&nbsp;frontend enthusiast based in&nbsp;Tbilisi, Georgia. With 3+&nbsp;years of&nbsp;commercial
 			experience in&nbsp;the JS/TS frontend world, specializing in&nbsp;React.js scope, and over 5&nbsp;years of&nbsp;versatile
 			developer background, I&rsquo;m passionate about creating user-friendly web apps and solving unique problems.

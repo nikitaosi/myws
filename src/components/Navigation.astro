@@ -1,13 +1,13 @@
 ---
 const pathname = Astro.url.pathname;
 ---
-
-<div class="nav-links flex gap-8 opacity-80">
-    <a class={pathname === "/" ? "underline underline-offset-4" : ""} href="/">about</a>
-    <a class={pathname === "/experience/" ? "underline underline-offset-4" : ""} href="/experience/">experience</a>
-    <a class={pathname === "/projects/" ? "underline underline-offset-4" : ""} href="/projects/">projects</a>
-    <a href="/resume.pdf" class="relative" target="_blank">resume
-      <svg class="absolute top-0 right-[-23px] fill-[rgb(var(--color-accent))]" xmlns="http://www.w3.org/2000/svg"
+{// #TODO put this link in a component }
+<div class="nav-links flex mt-12 justify-between w-full sm:mt-1.5 sm:w-auto sm:gap-8">
+    <a class={pathname === "/" ? "underline underline-offset-4 hover:text-[rgb(var(--color-accent))] transition" : "hover:text-[rgb(var(--color-accent))] transition"} href="/">about</a>
+    <a class={pathname === "/experience/" ? "underline underline-offset-4 hover:text-[rgb(var(--color-accent))] transition" : "hover:text-[rgb(var(--color-accent))] transition"} href="/experience/">experience</a>
+    <a class={pathname === "/projects/" ? "underline underline-offset-4 hover:text-[rgb(var(--color-accent))] transition" : "hover:text-[rgb(var(--color-accent))] transition"} href="/projects/">projects</a>
+    <a href="/resume.pdf" class="relative hover:text-[rgb(var(--color-accent))] hover:fill-[rgb(var(--color-accent))] fill-[rgb(var(--color-text-base))] transition cursor-pointer pr-2" target="_blank">resume
+      <svg class="absolute top-[-1px] right-[-15px] hidden sm:block" xmlns="http://www.w3.org/2000/svg"
       	 width="20px" height="20px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
       <g>
       	<g>
