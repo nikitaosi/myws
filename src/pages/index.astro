@@ -48,7 +48,7 @@ const technologies = [
 ---
 
 <BaseLayout title={name}>
-  <section class="flex flex-col items-center justify-center py-8 text-left">
+  <section class="flex flex-col items-center justify-center mt-8 text-left">
     <div class="w-full sm:mt-10 flex flex-row items-center self-start justify-between sm:items-end">
       <div class="flex flex-col align-middle">
         <p class="text-base mb-1.5 font-medium select-none">{description}</p>
@@ -58,7 +58,7 @@ const technologies = [
              class="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full dark:grayscale-[20%] select-none"/>
     </div>
     <Contacts/>
-    <ul class='w-full'>
+    <ul class='w-full mb-2'>
       <li>
         <span><b>Location: </b>Georgia</span>
       </li>
@@ -79,9 +79,9 @@ const technologies = [
     <p class="my-2 self-start text-md opacity-70">If&nbsp;you&rsquo;d like to&nbsp;get in&nbsp;touch, feel free to&nbsp;reach
       out to&nbsp;me&nbsp;via Telegram or&nbsp;email using details below.</p>
   </section>
-  <section class="pt-8">
-    <h2 class="text-2xl font-semibold mb-8">Skills</h2>
-    <div class="flex flex-row flex-wrap mb-16">
+  <section class="mt-8">
+    <h2 class="text-2xl font-semibold mb-2 sm:mb-8">Skills</h2>
+    <div class="flex flex-row flex-wrap mb-8 sm:mb-16">
       {technologies.map((item) => (
           <div class="px-2 py-1 my-2 mr-4 ml-0 relative border rounded-xl whitespace-nowrap">
             {item.name}
