@@ -10226,6 +10226,7 @@ __metadata:
     astro-icon: "npm:0.8.2"
     autoprefixer: "npm:10.4.17"
     eslint: "npm:8.56.0"
+    netlify: "npm:^13.1.14"
     netlify-cli: "npm:^17.19.3"
     postcss: "npm:8.4.35"
     react: "npm:18.2.0"
