@@ -9,15 +9,18 @@
 
 html.light {
     --color-fill: 251, 254, 251;
+    --color-fill-inverted: 33, 39, 55;
     --color-text-base: 1, 44, 86;
     --color-accent: 0, 108, 172;
     --color-card: 230, 230, 230;
     --color-card-muted: 205, 205, 205;
     --color-border: 236, 233, 233;
+    --color-borde: rgb(1, 44, 86);
 }
 
 html.dark {
     --color-fill: 33, 39, 55;
+    --color-fill-inverted: 251, 254, 251;
     --color-text-base: 234, 237, 243;
     --color-accent: 255, 107, 1;
     --color-card: 52, 63, 96;
