@@ -21,7 +21,7 @@
     "react-dom": "18.2.0",
     "tsc-files": "1.1.4"
   },
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@4.1.1",
   "devDependencies": {
     "@types/eslint": "8.56.3",
     "@types/react": "18.2.0",
