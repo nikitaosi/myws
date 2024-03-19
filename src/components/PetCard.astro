@@ -1,16 +1,30 @@
 ---
 const {title, image, description, technologies} = Astro.props.content;
-import {Image} from 'astro:assets';
 import TechBadge from "./TechBadge.astro";
 
 ---
 
 
 
-<div class="border rounded-[20px] p-4 border-[rgb(var(--color-card))] hover:bg-[rgb(var(--color-fill-inverted))] hover:text-[rgb(var(--color-card))] transition">
+<div class="relative border rounded-[20px] p-4 border-[rgb(var(--color-card))] hover:bg-[rgb(var(--color-fill-inverted))] group hover:text-[rgb(var(--color-fill))] transition">
   <h2 class="font-bold">{title}</h2>
-  <!--<Image image alt=""/>-->
   <p>{description}</p>
+  <div class=" flex-row absolute bottom-6 right-5 text-[rgb(var(--color-fill-inverted))] transition hidden group-hover:flex group-hover:fill-[rgb(var(--color-fill))]">
+    <!--<span class="align-middle text-2xl group-hover:text-[rgb(var(&#45;&#45;color-fill))] leading-5 mr-2">→</span>-->
+    <svg class="fill-[rgb(var(--color-fill-inverted))] group-hover:fill-[rgb(var(--color-fill))]"
+         width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_212_197)">
+        <path
+            d="M13.5 0.5C20.9554 0.5 27 6.54463 27 14C27 21.4554 20.9554 27.5 13.5 27.5C6.04462 27.5 -1.90735e-06 21.4564 -1.90735e-06 14C-1.90735e-06 6.54463 6.04462 0.5 13.5 0.5ZM9.71831 24.2843C9.79594 23.2279 9.88268 21.9191 9.88807 21.3892C9.92183 20.9825 9.9657 19.9481 10.9478 19.2876C7.04902 18.9613 5.19345 16.8063 5.06014 13.9585C4.94876 12.3368 5.59339 10.9109 6.73819 9.75999C6.68014 8.52913 6.77531 7.07011 6.85462 6.42886C7.73381 6.17574 9.78412 7.25844 10.3572 7.72149C11.5654 7.25236 14.5226 7.08766 16.3198 7.72149C17.5939 6.82543 19.0441 6.27193 19.8349 6.4265C20.5649 8.04414 20.0954 9.57301 19.953 9.75493C20.8929 10.6139 22.2041 11.6713 21.8481 13.8859C21.277 17.1334 18.9921 18.8853 15.3134 19.3136C16.0981 19.4739 16.2307 20.0595 16.2965 20.3136C18.767 21.3329 19.4731 19.6842 19.7853 19.2549C20.8221 17.9714 21.7529 18.3436 21.8103 18.3639C21.8659 18.3841 21.9081 18.4651 21.9021 18.5039C21.8497 18.7807 21.2851 19.0618 21.2574 19.0844C20.4923 19.6548 20.2085 20.6852 20.034 20.9788C18.9361 22.7838 16.3846 22.0352 16.3603 22.0504C16.3586 22.208 16.3779 23.5364 16.393 24.5698C21.0455 23.2991 24.4684 19.0551 24.4684 14C24.4684 7.94188 19.5578 3.03125 13.4997 3.03125C7.44154 3.03125 2.53091 7.94188 2.53091 14C2.53091 18.7274 5.52622 22.7429 9.71797 24.2843H9.71831Z"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_212_197">
+          <rect width="27" height="27" fill="white" transform="matrix(-1 0 0 1 27 0.5)"/>
+        </clipPath>
+      </defs>
+    </svg>
+    <span class="align-middle text-2xl group-hover:text-[rgb(var(--color-fill))] leading-5 ml-2">→</span>
+  </div>
   <div class="flex flex-row">
     {technologies.map((item: {name: string}) => (
       <TechBadge item={item}/>
