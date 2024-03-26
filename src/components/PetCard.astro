@@ -1,6 +1,6 @@
 ---
 const { content } = Astro.props;
-const {title, image, description, url, technologies} = content;
+const {title, image, description, url, technologies, is_finished} = content;
 import TechBadge from "./TechBadge.astro";
 
 ---
@@ -13,7 +13,6 @@ import TechBadge from "./TechBadge.astro";
     <p>{description}</p>
     <div
         class=" flex-row bottom-6 right-5 text-[rgb(var(--color-fill-inverted))] transition hidden sm:group-hover:flex group-hover:fill-[rgb(var(--color-fill))] sm:absolute">
-      <!--<span class="align-middle text-2xl group-hover:text-[rgb(var(&#45;&#45;color-fill))] leading-5 mr-2">→</span>-->
       <svg class="fill-[rgb(var(--color-fill-inverted))] group-hover:fill-[rgb(var(--color-fill))]"
            width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_212_197)">
