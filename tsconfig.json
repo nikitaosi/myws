@@ -4,9 +4,9 @@
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
-      },
+      }
     ],
     "strict": true,
-    "jsx": "react-jsx",
+    "jsx": "react-jsx"
   }
 }
