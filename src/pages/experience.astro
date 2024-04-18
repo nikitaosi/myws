@@ -9,13 +9,13 @@ const experiences = [
   {
     company: 'Independent Contractor',
     position: 'Frontend Developer',
-    descriptionList: ['Was involved in launching and managing several personal web projects.', 'Participated as a freelancer.','Engaged as volunteer or consultant within several developer communities.'],
+    descriptionList: ['Was involved in launching and managing several personal web projects.', 'Participated as a freelancer.', 'Engaged as volunteer or consultant within several developer communities.'],
     duration: 'march 2023 - now',
   },
   {
     company: 'Sber',
     position: 'Frontend Developer',
-    descriptionList: ['Launched 2 new projects and refactored 3 existing ones.', 'Developed six gaming web applications as part of special projects, and created two educational courses about investments.','Participated in the development of a unified CMS for content websites in the cluster.', 'Mentored three developers and led two product teams.'],
+    descriptionList: ['Launched 2 new projects and refactored 3 existing ones.', 'Developed six gaming web applications as part of special projects, and created two educational courses about investments.', 'Participated in the development of a unified CMS for content websites in the cluster.', 'Mentored three developers and led two product teams.'],
     duration: 'april 2021 - march 2023',
   },
   {
@@ -27,13 +27,13 @@ const experiences = [
   {
     company: '"Triumph" group of companies',
     position: 'Frontend Developer',
-    descriptionList: ['Developed around 80 tools for the browser-based editor for clothing items, including UI and functionality.', 'Participated in the development of tools for sewing patterns on a 3D mannequin.','Contributed to backlog planning.', 'Mentored 6 new programmers.'],
+    descriptionList: ['Developed around 80 tools for the browser-based editor for clothing items, including UI and functionality.', 'Participated in the development of tools for sewing patterns on a 3D mannequin.', 'Contributed to backlog planning.', 'Mentored 6 new programmers.'],
     duration: 'september 2019 - september 2020',
   },
   {
     company: 'Web games development, Phaser.js',
     position: 'Developer',
-    descriptionList: ['Wrote about six games in TypeScript and Phaser.js for the portfolio.', 'Completed approximately 400 tasks on basic algorithms during training.','Collaborated with another programmer to develop a commercial game-special project, a runner based on duck stories.'],
+    descriptionList: ['Wrote about six games in TypeScript and Phaser.js for the portfolio.', 'Completed approximately 400 tasks on basic algorithms during training.', 'Collaborated with another programmer to develop a commercial game-special project, a runner based on duck stories.'],
     duration: 'november 2018 - july 2019',
   },
   {
@@ -45,7 +45,7 @@ const experiences = [
   {
     company: 'GMsite',
     position: 'Web Developer',
-    descriptionList: ['Closed around 100 support tasks for existing clients of the company.','Created a new design from scratch for two websites, totaling around 20 separate pages.'],
+    descriptionList: ['Closed around 100 support tasks for existing clients of the company.', 'Created a new design from scratch for two websites, totaling around 20 separate pages.'],
     duration: 'january 2018 - june 2018',
   },
 ];
@@ -53,26 +53,24 @@ const experiences = [
 
 
 <BaseLayout title={title}>
-  <section class="flex flex-col items-center justify-center py-16 text-left">
-      <div class="mx-auto">
-        <h2 class="text-2xl font-semibold mb-8">{title}</h2>
+  <section class="flex flex-col items-center justify-center py-14 text-left ">
+    <div class="mx-auto">
+      <h2 class="text-2xl font-semibold">{title}</h2>
+      <div class="divide-y divide-solid divide-[rgb(var(--color-divide))]">
         {experiences.map(({company, position, descriptionList, duration}) => (
-          <div class="mb-16">
-            <h3 class="text-xl font-semibold">{company}</h3>
-            <span class="mb-2">{position}</span>
-            <br/>
-            <span class="mt-2 opacity-70">{duration}</span>
-            <br/>
-            <br/>
+            <div class="py-16 flex flex-col">
+              <h3 class="text-xl font-semibold">{company}</h3>
+              <span class="mt-2">{position}</span>
+              <span class="mb-4 opacity-70">{duration}</span>
               <ul class="list-disc pl-4">
                 {
                   descriptionList.map((item) => (
-                  <li>{item}</li>
-                ))
+                      <li>{item}</li>
+                  ))
                 }
               </ul>
-          </div>
-        ))}
-      </div>
+            </div>
+        ))}</div>
+    </div>
   </section>
 </BaseLayout>

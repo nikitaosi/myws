@@ -1,10 +1,20 @@
 ---
-const { href, platform, isEmail } = Astro.props;
+const {href, platform, isEmail} = Astro.props;
 ---
 
 {isEmail ?
-<a href={href} target="_blank" class='mt-2 sm:opacity-100 opacity-70'>{platform}</a>
+<a href={href} target="_blank" class='sm:opacity-100 opacity-70 sm:hover-none'>{platform}</a>
   :
 <a href={href} target="_blank"
-   class="sm:opacity-100 opacity-70 after:content-['→'] after:text-2xl after:ml-1 after:opacity-0 hover:after:opacity-100 after:transition-all sm:hover-none">{platform}</a>}
+   class="flex flex-row sm:opacity-100 group transition-all opacity-70 sm:hover-none">{platform}
+  <svg
+      class="mr-1 opacity-0 group-hover:opacity-100 transition-all fill-[rgb(var(--color-accent))] group-hover:fill-[rgb(var(--color-text-base))]"
+      width="24" height="24" viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg">
+    <path opacity="0.8"
+          d="M12.593 16.277L11.6982 15.392L14.8054 12.2848H7V10.9922H14.8054L11.6982 7.88992L12.593 7L17.2315 11.6385L12.593 16.277Z"
+          fill="currentColor"/>
+  </svg>
+</a>}
 
