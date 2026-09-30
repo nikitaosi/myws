@@ -1,5 +1,5 @@
 ---
-const theme = Astro.cookies.get('theme')?.value;
+const theme = Astro.cookies.get('theme')?.value === 'dark' ? 'dark' : 'light';
 ---
 
 <!--<div class="inline-flex items-center">-->
@@ -34,5 +34,4 @@ const theme = Astro.cookies.get('theme')?.value;
   </svg>
 </label>
 <script src="/src/lib/theme-util.ts"/>
-
 

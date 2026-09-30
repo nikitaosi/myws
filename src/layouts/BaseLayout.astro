@@ -5,8 +5,10 @@ import '../styles/global.css';
 import '../styles/expand.min.css';
 import { ViewTransitions } from 'astro:transitions';
 const { title } = Astro.props;
+const themeCookie = Astro.cookies.get('theme')?.value;
+const initialTheme = themeCookie === 'dark' ? 'dark' : 'light';
 ---
-<html lang="en">
+<html lang="en" class={initialTheme}>
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
@@ -17,10 +19,8 @@ const { title } = Astro.props;
   <ViewTransitions />
   <script>
     import { getCookie } from '../lib/helpers';
-    const theme = getCookie('theme');
-    document.documentElement.className = theme || 'light';
-    const checkbox = document.querySelector("input[name=theme_switch]") as HTMLInputElement;
-    checkbox!.checked = theme === "dark";
+    const savedTheme = getCookie('theme');
+    document.documentElement.className = savedTheme === 'dark' ? 'dark' : 'light';
   </script>
 </head>
 <body>
