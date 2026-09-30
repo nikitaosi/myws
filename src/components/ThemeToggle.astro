@@ -33,5 +33,19 @@ const theme = Astro.cookies.get('theme')?.value === 'dark' ? 'dark' : 'light';
     </g>
   </svg>
 </label>
-<script src="/src/lib/theme-util.ts"/>
+<script>
+  import '../lib/theme-util';
+</script>
 
+<style>
+  .theme-toggle input[type='checkbox'] {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+</style>

@@ -3,7 +3,7 @@ import Header from '../components/Header.astro';
 import Contacts from '../components/Contacts.astro';
 import '../styles/global.css';
 import '../styles/expand.min.css';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 const { title } = Astro.props;
 const themeCookie = Astro.cookies.get('theme')?.value;
 const initialTheme = themeCookie === 'dark' ? 'dark' : 'light';
@@ -16,7 +16,7 @@ const initialTheme = themeCookie === 'dark' ? 'dark' : 'light';
   <meta name="generator" content={Astro.generator} />
   <meta name="title" content={title} />
   <title>{title}</title>
-  <ViewTransitions />
+  <ClientRouter />
   <script>
     import { getCookie } from '../lib/helpers';
     const savedTheme = getCookie('theme');
