@@ -2,10 +2,15 @@
 import ThemeToggle from "./ThemeToggle.astro";
 import Navigation from "./Navigation.astro";
 
+interface Props {
+    theme: 'dark' | 'light';
+}
+
+const {theme} = Astro.props;
 ---
 <header class="relative">
     <nav class="flex flex-row relative">
         <Navigation />
-        <ThemeToggle />
+        <ThemeToggle theme={theme} />
     </nav>
 </header>

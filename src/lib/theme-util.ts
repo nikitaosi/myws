@@ -1,22 +1,9 @@
+document.addEventListener('change', (event) => {
+  const checkbox = event.target;
+  if (!(checkbox instanceof HTMLInputElement) || checkbox.name !== 'theme_switch') return;
 
-import { getCookie, setCookie } from "./helpers";
-function initializeTheme() {
-  const checkbox = document.querySelector("input[name=theme_switch]") as HTMLInputElement;
-  if (!checkbox) return;
-
-  const currentTheme = getCookie("theme") === "dark" ? "dark" : "light";
-  document.documentElement.className = currentTheme;
-  checkbox.checked = currentTheme === "dark";
-  checkbox.onchange = () => {
-    const newTheme = checkbox.checked ? 'dark' : 'light';
-    setCookie('theme', newTheme);
-    document.documentElement.className = newTheme;
-  };
-}
-
-document.addEventListener('astro:page-load', initializeTheme);
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeTheme, {once: true});
-} else {
-  initializeTheme();
-}
+  const theme = checkbox.checked ? 'dark' : 'light';
+  document.cookie = `theme=${theme}; Max-Age=31536000; Path=/; SameSite=Lax`;
+  document.documentElement.classList.toggle('dark', checkbox.checked);
+  document.documentElement.classList.toggle('light', !checkbox.checked);
+});

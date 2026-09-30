@@ -1,15 +1,10 @@
 ---
-const theme = Astro.cookies.get('theme')?.value === 'dark' ? 'dark' : 'light';
+interface Props {
+  theme: 'dark' | 'light';
+}
+
+const {theme} = Astro.props;
 ---
-
-<!--<div class="inline-flex items-center">-->
-<!--    <label for="themeSwitch" title="Switch between dark and light mode" aria-label="Switch between dark and light mode"><select class="cursor-pointer shadow-none outline-none dark:bg-[#121212] bg-white" name="themeSwitch" id="themeSwitch">-->
-<!--        <option value="system">🌗</option>-->
-<!--        <option value="dark">🌑</option>-->
-<!--        <option value="light">🌞</option>-->
-<!--    </select></label>-->
-<!--</div>-->
-
 
 <label class="theme-toggle absolute top-0 right-0" title="Toggle theme">
   <input type="checkbox" name="theme_switch" checked={theme === 'dark'}/>

@@ -23,3 +23,7 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# browser tests
+playwright-report/
+test-results/

@@ -5,8 +5,7 @@ import '../styles/global.css';
 import '../styles/expand.min.css';
 import { ClientRouter } from 'astro:transitions';
 const { title } = Astro.props;
-const themeCookie = Astro.cookies.get('theme')?.value;
-const initialTheme = themeCookie === 'dark' ? 'dark' : 'light';
+const initialTheme = Astro.cookies.get('theme')?.value === 'dark' ? 'dark' : 'light';
 ---
 <html lang="en" class={initialTheme}>
 <head>
@@ -17,15 +16,10 @@ const initialTheme = themeCookie === 'dark' ? 'dark' : 'light';
   <meta name="title" content={title} />
   <title>{title}</title>
   <ClientRouter />
-  <script>
-    import { getCookie } from '../lib/helpers';
-    const savedTheme = getCookie('theme');
-    document.documentElement.className = savedTheme === 'dark' ? 'dark' : 'light';
-  </script>
 </head>
 <body>
     <div class="max-w-2xl mx-auto --color-fill">
-        <Header />
+        <Header theme={initialTheme} />
         <slot />
         <Contacts />
     </div>
