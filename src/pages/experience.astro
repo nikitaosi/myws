@@ -5,72 +5,110 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Work experience";
 
-const experiences = [
+type Experience = {
+  company: string;
+  position: string;
+  duration: string;
+  description?: string;
+  projects?: { title: string; descriptionList: string[] }[];
+};
+
+const experiences: Experience[] = [
+  {
+    company: 'EPAM Systems',
+    position: 'Frontend Engineer',
+    duration: 'Jun 2024 - Aug 2026',
+    projects: [
+      {
+        title: 'Cosmetics e-commerce platform',
+        descriptionList: [
+          'Developed a new regional e-commerce frontend with Next.js, React, TypeScript and shadcn/ui.',
+          'Implemented wishlist functionality, built responsive interfaces and collaborated with backend engineers on the underlying data model.',
+        ],
+      },
+      {
+        title: 'Education platform',
+        descriptionList: [
+          'Built and maintained features using React, Next.js and TypeScript with SSR, including UI redesigns and reusable components.',
+          'Participated in the Adobe Experience Manager release process and resolved critical production issues.',
+        ],
+      },
+      {
+        title: 'Insurance platform - shared UI kit',
+        descriptionList: [
+          'Developed shared components using React and Next.js in a Tailwind CSS and Yarn Workspaces monorepo, supporting multiple product themes.',
+          'Maintained theme-specific behavior and used AI-assisted workflows to propagate repetitive changes consistently across themes.',
+        ],
+      },
+    ],
+  },
   {
     company: 'Independent Contractor',
     position: 'Frontend Developer',
-    descriptionList: ['Was involved in launching and managing several personal web projects.', 'Participated as a freelancer.', 'Engaged as volunteer or consultant within several developer communities.'],
-    duration: 'march 2023 - now',
+    description: 'Built personal web products and an educational platform using React, Next.js, TypeScript, Astro, Strapi and NestJS.',
+    duration: 'May 2023 - Jun 2024',
   },
   {
-    company: 'Sber',
-    position: 'Frontend Developer',
-    descriptionList: ['Launched 2 new projects and refactored 3 existing ones.', 'Developed six gaming web applications as part of special projects, and created two educational courses about investments.', 'Participated in the development of a unified CMS for content websites in the cluster.', 'Mentored three developers and led two product teams.'],
-    duration: 'april 2021 - march 2023',
+    company: 'Sberbank',
+    position: 'Frontend Engineer and Team Lead',
+    description: 'Led frontend development across three product teams over the course of the role. Launched and maintained media, education and interactive products, improved performance and mentored engineers.',
+    duration: 'Apr 2021 - Apr 2023',
   },
   {
     company: 'Business Integration',
-    position: 'Frontend Developer',
-    descriptionList: ['Refactored a service dashboard displaying the internal services status at the bank.'],
-    duration: 'december 2020 - april 2021',
+    position: 'Frontend Engineer',
+    description: 'Refactored an internal service-status dashboard for Sberbank using TypeScript, React and Next.js.',
+    duration: 'Dec 2020 - Apr 2021',
   },
   {
-    company: '"Triumph" group of companies',
-    position: 'Frontend Developer',
-    descriptionList: ['Developed around 80 tools for the browser-based editor for clothing items, including UI and functionality.', 'Participated in the development of tools for sewing patterns on a 3D mannequin.', 'Contributed to backlog planning.', 'Mentored 6 new programmers.'],
-    duration: 'september 2019 - september 2020',
+    company: 'Triumph Group',
+    position: 'Frontend Engineer',
+    description: 'Developed browser-based CAD tools for clothing design and sewing patterns; contributed to planning and mentored six new developers.',
+    duration: 'Sep 2019 - Sep 2020',
   },
   {
-    company: 'Web games development, Phaser.js',
-    position: 'Developer',
-    descriptionList: ['Wrote about six games in TypeScript and Phaser.js for the portfolio.', 'Completed approximately 400 tasks on basic algorithms during training.', 'Collaborated with another programmer to develop a commercial game-special project, a runner based on duck stories.'],
-    duration: 'november 2018 - july 2019',
+    company: 'Freelance',
+    position: 'Frontend Engineer',
+    description: 'Developed six browser games with TypeScript and Phaser.js, plus a freelance web game project.',
+    duration: 'Nov 2018 - Jul 2019',
   },
   {
     company: 'RD Express',
     position: 'Developer',
-    descriptionList: ['Designed and developed Telegram, WhatsApp, VK, and Viber bots, consisting of 4 separate services (showcase, product search, delivery processing, inventory checking) for organizing fulfillment for a comics delivery company.', 'Integrated with external services Dostavista and MoySklad.'],
-    duration: 'june 2018 - november 2018',
+    description: 'Built commerce and fulfillment bots with product search, delivery and inventory features; integrated external APIs.',
+    duration: 'Jun 2018 - Nov 2018',
   },
   {
     company: 'GMsite',
     position: 'Web Developer',
-    descriptionList: ['Closed around 100 support tasks for existing clients of the company.', 'Created a new design from scratch for two websites, totaling around 20 separate pages.'],
-    duration: 'january 2018 - june 2018',
+    description: 'Delivered website designs, frontend and backend maintenance, and bug fixes for web-studio clients.',
+    duration: 'Jan 2018 - Jun 2018',
   },
 ];
 ---
 
-
 <BaseLayout title={title}>
-  <section class="flex flex-col items-center justify-center py-14 text-left ">
+  <section class="flex flex-col items-center justify-center py-14 text-left">
     <div class="mx-auto">
       <h2 class="text-2xl font-semibold">{title}</h2>
       <div class="divide-y divide-solid divide-[rgb(var(--color-divide))]">
-        {experiences.map(({company, position, descriptionList, duration}) => (
-            <div class="py-16 flex flex-col">
-              <h3 class="text-xl font-semibold">{company}</h3>
-              <span class="mt-2">{position}</span>
-              <span class="mb-4 opacity-70">{duration}</span>
-              <ul class="list-disc pl-4">
-                {
-                  descriptionList.map((item) => (
-                      <li>{item}</li>
-                  ))
-                }
-              </ul>
-            </div>
-        ))}</div>
+        {experiences.map(({company, position, description, duration, projects}) => (
+          <div class="py-16 flex flex-col">
+            <h3 class="text-xl font-semibold">{company}</h3>
+            <span class="mt-2">{position}</span>
+            <span class="mb-4 opacity-70">{duration}</span>
+            {description && <p>{description}</p>}
+            {projects?.map(({title, descriptionList}) => (
+              <div class="mt-4">
+                <h4 class="font-semibold mb-2">{title}</h4>
+                <ul class="list-disc pl-4 space-y-1">
+                  {descriptionList.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

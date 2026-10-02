@@ -1,8 +1,16 @@
 ---
-const {color, name} = Astro.props.item;
-import {Image} from 'astro:assets';
+import {technologyColors, type Technology} from '../lib/technology-colors';
+
+interface Props {
+  name: Technology;
+}
+
+const {name} = Astro.props;
+const {background} = technologyColors[name];
+const brightness = name === 'Vitest' ? 0.55 : name === 'Tailwind CSS' ? 0.75 : 0.95;
 ---
 
-<div class={`rounded px-4 py-1 m-2 ${color} w-fit `}>
-  <p class="text-sm text-white text-nowrap">{name}</p>
+<div class="relative rounded px-4 py-1 m-2 w-fit text-white">
+  <span aria-hidden="true" class="absolute inset-0 rounded" style={{backgroundColor: background, filter: `saturate(0.5) brightness(${brightness})`}} />
+  <p class="relative text-sm text-nowrap">{name}</p>
 </div>

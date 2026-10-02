@@ -2,40 +2,36 @@
 export const prerender = false;
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import {Image} from "astro:assets";
-import extra from '../images/img.png';
-import game from '../images/img2.png';
-import PetCard from "../components/PetCard.astro";
+import ProjectCard from '../components/ProjectCard.astro';
+import type {ComponentProps} from 'astro/types';
 
 const title = "Projects";
-const projects = [
+const projects: ComponentProps<typeof ProjectCard>['content'][] = [
   {
-    title: "My website",
-    is_finished: true,
-    url: 'https://github.com/nikitaosi/myws',
-    description: "This one where you at now.",
-    technologies: [{name: 'AstroJS', color: 'bg-orange-600'}, {name: 'Tailwind', color: 'bg-sky-400'}],
+    title: 'My website',
+    description: 'Personal portfolio built with Astro and Tailwind CSS, with server-rendered themes.',
+    repositories: [
+      { label: 'Source code', url: 'https://github.com/nikitaosi/myws', private: false },
+    ],
+    technologies: ['Astro', 'Tailwind CSS'],
   },
   {
-    title: "Expense tracker",
-    is_finished: false,
-    url: 'https://github.com/nikitaosi/extra',
-    description: "Simple expense tracker for personal use.",
-    technologies: [{name: 'NextJS', color: 'bg-gray-900'}, {
-      name: 'TypeScript',
-      color: 'bg-blue-900'
-    }, {name: 'Effector', color: 'bg-orange-700'}, {name: 'Tailwind', color: 'bg-sky-400'},],
+    title: 'Expense tracker',
+    description: 'Full-stack expense tracker with search, filters and secure sign-in. Expenses are stored in PostgreSQL and managed through a separate API using ConnectRPC and Protobuf.',
+    repositories: [
+      { label: 'Frontend', url: 'https://github.com/nikitaosi/extra', private: true },
+      { label: 'Backend', url: 'https://github.com/nikitaosi/extra-api', private: true },
+    ],
+    technologies: ['Next.js', 'TypeScript', 'React Query', 'Fastify', 'ConnectRPC', 'PostgreSQL'],
   },
   {
-    title: "ChatGPT Wrapper",
-    is_finished: false,
-    url: 'https://github.com/nikitaosi/chatgpt-wrapper',
-    description: 'Frontend wrapper for chatGPT API.',
-    technologies: [{name: 'NextJS', color: 'bg-gray-900'}, {
-      name: 'Adobe Spectrum',
-      color: 'bg-blue-600'
-    }, {name: 'Tailwind', color: 'bg-sky-400'}],
-  }
+    title: 'ChatGPT Wrapper',
+    description: 'AI chat application with streaming responses and a built-in demo mode. Live responses from the OpenAI Responses API can be enabled with a server-side API key.',
+    repositories: [
+      { label: 'Source code', url: 'https://github.com/nikitaosi/chatgpt-wrapper', private: true },
+    ],
+    technologies: ['Next.js', 'TypeScript', 'OpenAI API', 'Vitest'],
+  },
 ];
 ---
 
@@ -43,9 +39,7 @@ const projects = [
   <section class="flex flex-col items-center justify-center py-14 text-left">
     <h2 class="text-2xl font-semibold self-start">{title}</h2>
     <div class="grid grid-cols-1 gap-8 mt-10 w-full">
-      {projects.map((project) =>
-          <PetCard content={project}/>
-      )}
+      {projects.map((project) => <ProjectCard content={project} />)}
     </div>
   </section>
 </BaseLayout>
