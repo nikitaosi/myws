@@ -8,23 +8,23 @@ import photo from '../images/photo.jpg';
 const name = "Nikita Osipov";
 const description = "Frontend Engineer";
 const technologies = [
-  {name: 'JavaScript', primary: true},
-  {name: 'TypeScript', primary: true},
-  {name: 'React', primary: true},
-  {name: 'Next.js', primary: true},
-  {name: 'Tailwind CSS', primary: true},
-  {name: 'Responsive Design', primary: false},
-  {name: 'Redux', primary: false},
-  {name: 'React Query', primary: false},
-  {name: 'GraphQL', primary: false},
-  {name: 'Jest', primary: false},
-  {name: 'Vitest', primary: false},
-  {name: 'Cypress', primary: false},
-  {name: 'React Testing Library', primary: false},
-  {name: 'Git', primary: false},
-  {name: 'Claude Code', primary: false},
-  {name: 'Codex', primary: false},
-  {name: 'AI Integration', primary: false}
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Next.js',
+  'Tailwind CSS',
+  'Responsive Design',
+  'Redux',
+  'React Query',
+  'GraphQL',
+  'Jest',
+  'Vitest',
+  'Cypress',
+  'React Testing Library',
+  'Git',
+  'Claude Code',
+  'Codex',
+  'AI Integration'
 ];
 ---
 
@@ -52,18 +52,12 @@ const technologies = [
   </section>
   <section class="mt-8">
     <h2 class="text-2xl font-semibold mb-2 sm:mb-8">Skills</h2>
-    <div class="flex flex-row flex-wrap mb-8 sm:mb-16">
-      {technologies.map((item) => (
-          <div class="px-2 py-1 my-2 mr-4 ml-0 relative border rounded-xl whitespace-nowrap">
-            {item.name}
-            {item.primary && (
-              <span
-                aria-hidden="true"
-                class="absolute top-[-5px] right-[-6px] size-4 bg-skin-accent mask-[url(/icons/star.svg)] mask-contain mask-center mask-no-repeat transition-colors"
-              />
-            )}
-          </div>
+    <ul class="flex flex-wrap gap-2 mb-8 sm:mb-16">
+      {technologies.map((technology) => (
+          <li class="px-3 py-1 rounded-md bg-skin-base/5 text-sm whitespace-nowrap">
+            {technology}
+          </li>
       ))}
-    </div>
+    </ul>
   </section>
 </BaseLayout>
