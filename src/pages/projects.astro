@@ -19,8 +19,8 @@ const projects: ComponentProps<typeof ProjectCard>['content'][] = [
     title: 'Expense tracker',
     description: 'Full-stack expense tracker with search, filters and secure sign-in. Expenses are stored in PostgreSQL and managed through a separate API using ConnectRPC and Protobuf.',
     repositories: [
-      { label: 'Frontend', url: 'https://github.com/nikitaosi/extra', private: true },
-      { label: 'Backend', url: 'https://github.com/nikitaosi/extra-api', private: true },
+      { label: 'Frontend', url: 'https://github.com/nikitaosi/extra', private: false },
+      { label: 'Backend', url: 'https://github.com/nikitaosi/extra-api', private: false },
     ],
     technologies: ['Next.js', 'TypeScript', 'React Query', 'Fastify', 'ConnectRPC', 'PostgreSQL'],
   },
@@ -28,7 +28,7 @@ const projects: ComponentProps<typeof ProjectCard>['content'][] = [
     title: 'ChatGPT Wrapper',
     description: 'AI chat application with streaming responses and a built-in demo mode. Live responses from the OpenAI Responses API can be enabled with a server-side API key.',
     repositories: [
-      { label: 'Source code', url: 'https://github.com/nikitaosi/chatgpt-wrapper', private: true },
+      { label: 'Source code', url: 'https://github.com/nikitaosi/chatgpt-wrapper', private: false },
     ],
     technologies: ['Next.js', 'TypeScript', 'OpenAI API', 'Vitest'],
   },
