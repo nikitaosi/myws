@@ -5,6 +5,7 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://nikitaosi.dev',
   integrations: [react()],
   vite: {plugins: [tailwindcss()]},
   adapter: netlify({devFeatures: false}),

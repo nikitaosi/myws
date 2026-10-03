@@ -35,7 +35,7 @@ const projects: ComponentProps<typeof ProjectCard>['content'][] = [
 ];
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={`${title} — Nikita Osipov`} description="Explore Nikita Osipov's projects: an Astro portfolio, a full-stack expense tracker and an AI chat application with streaming responses. Includes source code links.">
   <section class="flex flex-col items-center justify-center py-14 text-left">
     <h2 class="text-2xl font-semibold self-start">{title}</h2>
     <div class="grid grid-cols-1 gap-8 mt-10 w-full">

@@ -5,30 +5,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Contacts from '../components/Contacts.astro';
 import {Image} from 'astro:assets';
 import photo from '../images/photo.jpg';
-const name = "Nikita Osipov";
-const description = "Frontend Engineer";
-const technologies = [
-  'JavaScript',
-  'TypeScript',
-  'React',
-  'Next.js',
-  'Tailwind CSS',
-  'Responsive Design',
-  'Redux',
-  'React Query',
-  'GraphQL',
-  'Jest',
-  'Vitest',
-  'Cypress',
-  'React Testing Library',
-  'Git',
-  'Claude Code',
-  'Codex',
-  'AI Integration'
-];
+import {profile} from '../lib/profile';
+const {name, jobTitle: description, skills: technologies} = profile;
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': new URL('/#person', Astro.site).href,
+  name,
+  jobTitle: profile.jobTitle,
+  description: profile.description,
+  url: new URL('/', Astro.site).href,
+  knowsAbout: profile.skills,
+  sameAs: profile.sameAs,
+};
 ---
 
-<BaseLayout title={name}>
+<BaseLayout title={`${name} — ${description}`} description={profile.description} structuredData={person}>
   <section class="flex flex-col items-center justify-center mt-8 text-left">
     <div class="w-full sm:mt-10 flex flex-row items-center self-start justify-between sm:items-end">
       <div class="flex flex-col align-middle">
@@ -41,14 +33,14 @@ const technologies = [
     <Contacts/>
     <ul class='w-full mb-2'>
       <li>
-        <span><b>Location: </b>Thailand</span>
+        <span><b>Location: </b>{profile.location}</span>
       </li>
       <li>
-        <span><b>Format: </b>part-time, project-based or full-time remote</span>
+        <span><b>Format: </b>{profile.workFormat}</span>
       </li>
     </ul>
-    <p class="my-2 self-start text-md">Frontend Engineer with 6+ years of commercial experience building production applications with React, TypeScript and Next.js. My work spans frontend architecture, reusable components, SSR and performance optimization, alongside team leadership and release delivery. I also use AI-assisted development tools such as Claude Code and Codex in my daily workflow.</p>
-    <p class="my-2 self-start text-md">Open to new opportunities.</p>
+    <p class="my-2 self-start text-md">{profile.description}</p>
+    <p class="my-2 self-start text-md">{profile.availability}</p>
   </section>
   <section class="mt-8">
     <h2 class="text-2xl font-semibold mb-2 sm:mb-8">Skills</h2>

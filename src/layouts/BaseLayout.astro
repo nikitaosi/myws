@@ -4,7 +4,14 @@ import Contacts from '../components/Contacts.astro';
 import '../styles/global.css';
 import '../styles/expand.min.css';
 import { ClientRouter } from 'astro:transitions';
-const { title } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  structuredData?: Record<string, unknown>;
+}
+const {title, description, structuredData} = Astro.props;
+const pathname = Astro.url.pathname.replace(/\/+$/, '') + '/';
+const canonical = new URL(pathname, Astro.site).href;
 const initialTheme = Astro.cookies.get('theme')?.value === 'dark' ? 'dark' : 'light';
 ---
 <html lang="en" class={initialTheme}>
@@ -14,6 +21,15 @@ const initialTheme = Astro.cookies.get('theme')?.value === 'dark' ? 'dark' : 'li
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="describedby" href="/llms.txt" type="text/plain" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nikita Osipov" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />}
   <title>{title}</title>
   <ClientRouter />
 </head>
