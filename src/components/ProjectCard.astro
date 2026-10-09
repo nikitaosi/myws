@@ -1,26 +1,37 @@
 ---
+import {Image} from 'astro:assets';
+import type {ImageMetadata} from 'astro';
 import TechBadge from './TechBadge.astro';
 import type {Technology} from '../lib/technology-colors';
 
 interface Props {
   content: {
     title: string;
+    preview?: {src: ImageMetadata; alt: string; caption: string};
+    note?: string;
+    live?: {url: string; label: string};
     description: string;
     technologies: Technology[];
     repositories: { label: string; url: string; private: boolean }[];
   };
 }
 
-const {title, description, technologies, repositories} = Astro.props.content;
+const {title, description, technologies, repositories, preview, note, live} = Astro.props.content;
 ---
 
 <article class="border rounded-[20px] p-4 border-[rgb(var(--color-card))]">
-  <h3 class="font-bold">{title}</h3>
+  <h2 class="font-bold">{title}</h2>
+  {preview && <figure class="mt-4">
+    <Image src={preview.src} alt={preview.alt} widths={[320, 640, 960]} sizes="(max-width: 720px) calc(100vw - 72px), 640px" class="w-full h-auto max-h-96 object-contain bg-skin-base/5 rounded-xl border border-skin-base/10" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-skin-base/70">{preview.caption}</figcaption>
+  </figure>}
   <p class="mt-3">{description}</p>
+  {note && <p class="mt-3 text-sm text-skin-base/70">{note}</p>}
   <div class="flex flex-row flex-wrap pt-4">
     {technologies.map((name) => <TechBadge name={name} />)}
   </div>
   <div class="flex flex-wrap gap-x-6 gap-y-2 mt-4">
+    {live && <a href={live.url} target="_blank" rel="noopener noreferrer" class="text-sm text-skin-accent underline underline-offset-4 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 rounded-sm">{live.label} ↗</a>}
     {repositories.map((repository) => (
       <div class="inline-flex items-center gap-2">
         <a

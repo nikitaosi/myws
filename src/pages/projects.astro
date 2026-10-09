@@ -2,22 +2,18 @@
 export const prerender = false;
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import expensePreview from '../images/expense-tracker-demo.jpg';
 import ProjectCard from '../components/ProjectCard.astro';
 import type {ComponentProps} from 'astro/types';
 
 const title = "Projects";
 const projects: ComponentProps<typeof ProjectCard>['content'][] = [
   {
-    title: 'My website',
-    description: 'Personal portfolio built with Astro and Tailwind CSS, with server-rendered themes.',
-    repositories: [
-      { label: 'Source code', url: 'https://github.com/nikitaosi/myws', private: false },
-    ],
-    technologies: ['Astro', 'Tailwind CSS'],
-  },
-  {
     title: 'Expense tracker',
-    description: 'Full-stack expense tracker with search, filters and secure sign-in. Expenses are stored in PostgreSQL and managed through a separate API using ConnectRPC and Protobuf.',
+    preview: {src: expensePreview, alt: 'Expense Tracker dashboard with currency totals, search, category filter and three demo expenses', caption: 'Live application with fictional demo expenses, shown in dark mode.'},
+    live: {url: 'https://extra-tracker.netlify.app/', label: 'Live app — sign-in required'},
+    note: 'Sign-in is required to use the app.',
+    description: 'Create, search, filter and edit expenses in a full-stack Next.js application. A typed ConnectRPC API connects the interface to PostgreSQL; validated integer amounts avoid floating-point rounding errors.',
     repositories: [
       { label: 'Frontend', url: 'https://github.com/nikitaosi/extra', private: false },
       { label: 'Backend', url: 'https://github.com/nikitaosi/extra-api', private: false },
@@ -26,18 +22,28 @@ const projects: ComponentProps<typeof ProjectCard>['content'][] = [
   },
   {
     title: 'ChatGPT Wrapper',
-    description: 'AI chat application with streaming responses and a built-in demo mode. Live responses from the OpenAI Responses API can be enabled with a server-side API key.',
+    note: 'Built-in demo streams fixed responses without an API key. Public live demo is not currently linked.',
+    description: 'A focused Next.js chat interface with streamed responses and conversation controls. A server-side integration keeps the API key out of the browser; a built-in demo demonstrates streaming without paid API calls.',
     repositories: [
       { label: 'Source code', url: 'https://github.com/nikitaosi/chatgpt-wrapper', private: false },
     ],
     technologies: ['Next.js', 'TypeScript', 'OpenAI API', 'Vitest'],
   },
+  {
+    title: 'My website',
+    description: 'Personal portfolio built with Astro and Tailwind CSS, with server-rendered themes.',
+    repositories: [
+      { label: 'Source code', url: 'https://github.com/nikitaosi/myws', private: false },
+    ],
+    technologies: ['Astro', 'Tailwind CSS'],
+  },
 ];
 ---
 
-<BaseLayout title={`${title} — Nikita Osipov`} description="Explore Nikita Osipov's projects: an Astro portfolio, a full-stack expense tracker and an AI chat application with streaming responses. Includes source code links.">
+<BaseLayout title={`${title} — Nikita Osipov`} description="Explore Nikita Osipov's projects: a full-stack expense tracker, an AI chat application with streaming responses and an Astro portfolio. Includes source code links.">
   <section class="flex flex-col items-center justify-center py-14 text-left">
-    <h2 class="text-2xl font-semibold self-start">{title}</h2>
+    <h1 class="text-2xl font-semibold self-start">{title}</h1>
+    <p class="mt-3 self-start">Personal projects with source code. For production work at EPAM and Sberbank, see <a href="/experience/" class="text-skin-accent underline underline-offset-4">commercial experience</a>.</p>
     <div class="grid grid-cols-1 gap-8 mt-10 w-full">
       {projects.map((project) => <ProjectCard content={project} />)}
     </div>

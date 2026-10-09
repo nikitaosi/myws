@@ -8,6 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "test:e2e": "playwright test",
+    "check:contact": "node --env-file-if-exists=.env scripts/check-contact-config.mjs",
     "astro": "astro"
   },
   "dependencies": {

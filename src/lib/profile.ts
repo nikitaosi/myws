@@ -2,10 +2,10 @@
 export const profile = {
   name: 'Nikita Osipov',
   jobTitle: 'Frontend Engineer',
-  description: 'Frontend Engineer with 6+ years of commercial experience building production applications with React, TypeScript and Next.js. My work spans frontend architecture, reusable components, SSR and performance optimization, alongside team leadership and release delivery. I also use AI-assisted development tools such as Claude Code and Codex in my daily workflow.',
+  description: 'Frontend Engineer with 6+ years of commercial experience building production applications with React, TypeScript and Next.js. My work spans frontend architecture, reusable components, SSR and performance optimization, alongside team leadership and release delivery. I help teams build new features, improve existing interfaces and maintain React and Next.js products.',
   location: 'Thailand',
   workFormat: 'part-time, project-based or full-time remote',
-  availability: 'Open to new opportunities.',
+  availability: 'Available for remote roles and small React / Next.js contracts — from UI fixes to feature delivery.',
   skills: [
     'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS',
     'Responsive Design', 'Redux', 'React Query', 'GraphQL', 'Jest',
