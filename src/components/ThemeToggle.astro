@@ -1,6 +1,7 @@
 ---
+import type {Theme} from '../lib/theme';
 interface Props {
-  theme: 'dark' | 'light';
+  theme: Theme;
 }
 
 const {theme} = Astro.props;
@@ -33,6 +34,27 @@ const {theme} = Astro.props;
 </script>
 
 <style>
+  /* Match the dark icon before JS synchronizes the checkbox's accessible state. */
+  @media (prefers-color-scheme: dark) {
+    :global(html.system .theme-toggle__expand g circle) {
+      transform: scale(1.4);
+    }
+    :global(html.system .theme-toggle__expand g path) {
+      transform: scale(.75);
+    }
+    :global(html.system .theme-toggle__expand > :first-child path) {
+      d: path('M-9 3h25a1 1 0 0017 13v30H0Z');
+    }
+    @supports not (d: path('')) {
+      :global(html.system .theme-toggle__expand > :first-child path) {
+        transform: translate3d(-9px, 14px, 0);
+      }
+    }
+  }
+  :global(html.system .theme-toggle__expand *) {
+    transition: none !important;
+  }
+
   .theme-toggle input[type='checkbox'] {
     position: absolute;
     inset: 0;

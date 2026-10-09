@@ -1,9 +1,10 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
 import Navigation from "./Navigation.astro";
+import type {Theme} from '../lib/theme';
 
 interface Props {
-    theme: 'dark' | 'light';
+    theme: Theme;
 }
 
 const {theme} = Astro.props;

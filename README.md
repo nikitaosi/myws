@@ -9,7 +9,7 @@ node .yarn/releases/yarn-4.1.1.cjs install --immutable
 node .yarn/releases/yarn-4.1.1.cjs dev
 ```
 
-The theme is read from a cookie during server rendering so the correct colors are present in the first HTML response. The browser script only handles theme changes.
+The server uses an explicit theme cookie when present; otherwise it renders system mode. CSS `prefers-color-scheme` resolves system mode before the first paint, including without JavaScript. The browser script synchronizes the toggle and only writes a theme cookie after a manual choice.
 
 To run the browser tests, install Playwright's headless Chromium once, then run the tests:
 

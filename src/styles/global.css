@@ -12,7 +12,8 @@
     src: url('/fonts/Inter-VariableFont_slnt,wght.ttf') format('ttf');
 }
 
-html.light {
+html.light, html.system {
+    color-scheme: light;
     --color-fill: 251, 254, 251;
     --color-fill-inverted: 33, 39, 55;
     --color-text-base: 1, 44, 86;
@@ -24,6 +25,7 @@ html.light {
 }
 
 html.dark {
+    color-scheme: dark;
     --color-fill: 33, 39, 55;
     --color-fill-inverted: 251, 254, 251;
     --color-text-base: 234, 237, 243;
@@ -32,6 +34,21 @@ html.dark {
     --color-card-muted: 138, 51, 2;
     --color-border: 171, 75, 8;
     --color-divide: 174, 178, 187;
+}
+
+/* System mode is resolved by CSS before the first paint, not by JavaScript. */
+@media (prefers-color-scheme: dark) {
+    html.system {
+        color-scheme: dark;
+        --color-fill: 33, 39, 55;
+        --color-fill-inverted: 251, 254, 251;
+        --color-text-base: 234, 237, 243;
+        --color-accent: 255, 107, 1;
+        --color-card: 52, 63, 96;
+        --color-card-muted: 138, 51, 2;
+        --color-border: 171, 75, 8;
+        --color-divide: 174, 178, 187;
+    }
 }
 
 body {

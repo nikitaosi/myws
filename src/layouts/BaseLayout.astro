@@ -4,6 +4,7 @@ import Contacts from '../components/Contacts.astro';
 import '../styles/global.css';
 import '../styles/expand.min.css';
 import { ClientRouter } from 'astro:transitions';
+import {themeFromCookie} from '../lib/theme';
 interface Props {
   title: string;
   description: string;
@@ -12,7 +13,7 @@ interface Props {
 const {title, description, structuredData} = Astro.props;
 const pathname = Astro.url.pathname.replace(/\/+$/, '') + '/';
 const canonical = new URL(pathname, Astro.site).href;
-const initialTheme = Astro.cookies.get('theme')?.value === 'dark' ? 'dark' : 'light';
+const initialTheme = themeFromCookie(Astro.cookies.get('theme')?.value);
 ---
 <html lang="en" class={initialTheme}>
 <head>
