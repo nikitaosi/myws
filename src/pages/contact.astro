@@ -24,7 +24,7 @@ const values = outcome?.values ?? {name: '', email: '', message: ''};
     {outcome && <p role={outcome.sent ? 'status' : 'alert'} class="my-6 rounded-lg border border-skin-base/20 p-4">{outcome.feedback}</p>}
     {outcome?.sent ? <a href="/contact/" class="inline-block mt-4 text-skin-accent underline underline-offset-4">Send another message</a> : <>
       {!ready && <p role="status" class="mt-6 rounded-lg bg-skin-base/5 p-4 text-sm">The form is temporarily unavailable. Please use email or Telegram above.</p>}
-      <form id="contact-form" method="post" action="/contact/" class="mt-8 space-y-5" data-sitekey={ready ? config.siteKey : undefined}>
+      <form id="contact-form" method="post" action="/contact/" enctype="application/x-www-form-urlencoded" data-astro-reload class="mt-8 space-y-5" data-sitekey={ready ? config.siteKey : undefined}>
         <div>
           <label for="contact-name" class="block mb-2 text-sm font-medium">Name <span class="font-normal text-skin-base/70">(optional)</span></label>
           <input id="contact-name" name="name" autocomplete="name" maxlength="80" value={values.name} class="contact-field" />
