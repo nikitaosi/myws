@@ -24,7 +24,8 @@ const projects: ComponentProps<typeof ProjectCard>['content'][] = [
   {
     title: 'ChatGPT Wrapper',
     preview: {src: chatPreview, alt: 'ChatGPT Wrapper interface with a sample conversation and message composer', caption: 'Actual application running locally in demo mode with a fixed streamed response.'},
-    note: 'Built-in demo streams fixed responses without an API key. Public live demo is not currently linked.',
+    live: {url: 'https://chatgpt-wrapper.netlify.app/', label: 'Live demo'},
+    note: 'Built-in demo streams fixed responses without an API key.',
     description: 'A focused Next.js chat interface with streamed responses and conversation controls. A server-side integration keeps the API key out of the browser; a built-in demo demonstrates streaming without paid API calls.',
     repositories: [
       { label: 'Source code', url: 'https://github.com/nikitaosi/chatgpt-wrapper', private: false },
