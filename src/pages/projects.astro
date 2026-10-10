@@ -12,8 +12,8 @@ const projects: ComponentProps<typeof ProjectCard>['content'][] = [
   {
     title: 'Expense tracker',
     preview: {src: expensePreview, alt: 'Expense Tracker dashboard with currency totals, search, category filter and three demo expenses', caption: 'Live application with fictional demo expenses, shown in dark mode.'},
-    live: {url: 'https://extra-tracker.netlify.app/', label: 'Live app — sign-in required'},
-    note: 'Sign-in is required to use the app.',
+    live: {url: 'https://extra-tracker.netlify.app/', label: 'Live demo'},
+    note: 'Demo account: test@mail.com · Password: strongpswrd. Contains fictional expenses.',
     description: 'Create, search, filter and edit expenses through a Next.js frontend and a separate Node.js/Fastify backend. A typed ConnectRPC API connects the interface to PostgreSQL; validated integer amounts avoid floating-point rounding errors.',
     repositories: [
       { label: 'Frontend', url: 'https://github.com/nikitaosi/extra', private: false },
