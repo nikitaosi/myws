@@ -41,13 +41,13 @@ async function commands(page: Page) {
 test('rejecting keeps Google unloaded across navigation and reload', async ({page, context}) => {
   const requests = await prepare(context);
   await page.goto(production);
-  await expect(page.getByRole('heading', {name: 'Optional analytics'})).toBeVisible();
+  await expect(page.getByRole('region', {name: 'Optional analytics'})).toBeVisible();
   expect(requests).toEqual([]);
   expect(await commands(page)).toEqual([]);
   await page.getByRole('button', {name: 'Reject analytics', exact: true}).click();
   await page.getByRole('link', {name: 'projects', exact: true}).click();
   await expect(page).toHaveURL(`${production}/projects/`);
-  await expect(page.getByRole('heading', {name: 'Optional analytics'})).toBeHidden();
+  await expect(page.getByRole('region', {name: 'Optional analytics'})).toBeHidden();
   await page.reload();
   expect(requests).toEqual([]);
   expect(await commands(page)).toEqual([]);
@@ -80,7 +80,7 @@ test('saved consent loads once; revoking removes cookies and stops Google', asyn
   await context.addCookies([{name: 'analytics_consent', value: 'granted', url: production}]);
   await page.goto(production);
   await expect.poll(() => requests.length).toBe(1);
-  await expect(page.getByRole('heading', {name: 'Optional analytics'})).toBeHidden();
+  await expect(page.getByRole('region', {name: 'Optional analytics'})).toBeHidden();
   await context.addCookies([{name: '_ga', value: 'test', domain: '.nikitaosi.dev', path: '/'}]);
   await page.getByRole('button', {name: 'Analytics preferences', exact: true}).click();
   await page.getByRole('button', {name: 'Reject analytics', exact: true}).click();
@@ -96,7 +96,21 @@ test('localhost never loads Google, even after accepting', async ({page, context
   const requests = await prepare(context);
   await page.goto('/');
   await page.getByRole('button', {name: 'Accept analytics', exact: true}).click();
-  await expect(page.getByRole('heading', {name: 'Optional analytics'})).toBeHidden();
+  await expect(page.getByRole('region', {name: 'Optional analytics'})).toBeHidden();
   expect(requests).toEqual([]);
   expect(await commands(page)).toEqual([]);
 });
+
+for (const width of [390, 1280]) {
+  test(`consent banner stays compact at ${width}px`, async ({page}) => {
+    await page.setViewportSize({width, height: 800});
+    await page.goto('/');
+    const banner = page.getByRole('region', {name: 'Optional analytics'});
+    await expect(banner).toBeVisible();
+    const box = await banner.boundingBox();
+    expect(box!.width).toBeLessThanOrEqual(320);
+    expect(box!.height).toBeLessThanOrEqual(130);
+    expect(box!.x).toBeGreaterThanOrEqual(16);
+    expect(box!.x + box!.width).toBeLessThanOrEqual(width - 16);
+  });
+}

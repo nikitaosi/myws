@@ -85,6 +85,7 @@ function updateControls() {
   const preferences = document.querySelector<HTMLButtonElement>('[data-analytics-preferences]');
   if (banner) banner.hidden = readChoice() !== undefined;
   if (preferences) preferences.hidden = false;
+  document.querySelectorAll<HTMLButtonElement>('[data-analytics-choice]').forEach((button) => {button.disabled = false;});
 }
 
 function clearAnalyticsCookies() {
