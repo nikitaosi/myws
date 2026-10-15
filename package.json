@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "test:e2e": "playwright test",
     "check:contact": "node --env-file-if-exists=.env scripts/check-contact-config.mjs",
+    "generate:social": "node scripts/generate-social-card.mjs",
     "astro": "astro"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
     "eslint-plugin-astro": "3.2.1",
     "prettier": "3.9.9",
     "prettier-plugin-astro": "1.1.0",
+    "sharp": "0.35.5",
     "tailwindcss": "4.3.3",
     "typescript": "5.9.3",
     "vite": "8.3.1"

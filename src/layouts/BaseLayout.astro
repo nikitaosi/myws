@@ -1,21 +1,27 @@
 ---
 import Header from '../components/Header.astro';
 import Contacts from '../components/Contacts.astro';
+import Analytics from '../components/Analytics.astro';
 import '../styles/global.css';
 import '../styles/expand.min.css';
 import { ClientRouter } from 'astro:transitions';
 import {themeFromCookie} from '../lib/theme';
+import {canonicalUrl, pageSchema, socialImage, type PageType} from '../lib/seo';
+import photo from '../images/photo.jpg';
 interface Props {
   title: string;
   description: string;
-  structuredData?: Record<string, unknown>;
+  pageType?: PageType;
+  mainEntity?: Record<string, unknown>;
 }
-const {title, description, structuredData} = Astro.props;
-const pathname = Astro.url.pathname.replace(/\/+$/, '') + '/';
-const canonical = new URL(pathname, Astro.site).href;
+const {title, description, pageType = 'WebPage', mainEntity} = Astro.props;
+const site = Astro.site!;
+const canonical = canonicalUrl(Astro.url.pathname, site);
+const imageUrl = new URL(socialImage.path, site).href;
+const structuredData = pageSchema({site, canonical, title, description, pageType, mainEntity, photo: new URL(photo.src, site).href});
 const initialTheme = themeFromCookie(Astro.cookies.get('theme')?.value);
 ---
-<html lang="en" class={initialTheme}>
+<html lang="en" class={initialTheme} prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
@@ -23,6 +29,7 @@ const initialTheme = themeFromCookie(Astro.cookies.get('theme')?.value);
   <meta name="generator" content={Astro.generator} />
   <meta name="title" content={title} />
   <meta name="description" content={description} />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href={canonical} />
   <link rel="describedby" href="/llms.txt" type="text/plain" />
   <meta property="og:type" content="website" />
@@ -30,7 +37,19 @@ const initialTheme = themeFromCookie(Astro.cookies.get('theme')?.value);
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
-  {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />}
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content={imageUrl} />
+  <meta property="og:image:secure_url" content={imageUrl} />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content={String(socialImage.width)} />
+  <meta property="og:image:height" content={String(socialImage.height)} />
+  <meta property="og:image:alt" content={socialImage.alt} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={imageUrl} />
+  <meta name="twitter:image:alt" content={socialImage.alt} />
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
   <title>{title}</title>
   <ClientRouter />
 </head>
@@ -39,6 +58,7 @@ const initialTheme = themeFromCookie(Astro.cookies.get('theme')?.value);
         <Header theme={initialTheme} />
         <slot />
         <Contacts />
+        <Analytics />
     </div>
 </body>
 </html>

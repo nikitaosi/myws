@@ -6640,6 +6640,7 @@ __metadata:
     prettier-plugin-astro: "npm:1.1.0"
     react: "npm:19.3.0"
     react-dom: "npm:19.3.0"
+    sharp: "npm:0.35.5"
     tailwindcss: "npm:4.3.3"
     typescript: "npm:5.9.3"
     vite: "npm:8.3.1"

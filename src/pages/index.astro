@@ -7,20 +7,9 @@ import {Image} from 'astro:assets';
 import photo from '../images/photo.jpg';
 import {profile} from '../lib/profile';
 const {name, jobTitle: description, skills: technologies} = profile;
-const person = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  '@id': new URL('/#person', Astro.site).href,
-  name,
-  jobTitle: profile.jobTitle,
-  description: profile.description,
-  url: new URL('/', Astro.site).href,
-  knowsAbout: profile.skills,
-  sameAs: profile.sameAs,
-};
 ---
 
-<BaseLayout title={`${name} — ${description}`} description={profile.description} structuredData={person}>
+<BaseLayout title={`${name} — ${description}`} description={profile.summary} pageType="ProfilePage">
   <section class="flex flex-col items-center justify-center mt-8 text-left">
     <div class="w-full sm:mt-10 flex flex-row flex-wrap gap-4 items-center self-start justify-between sm:items-end">
       <div class="flex flex-col align-middle">

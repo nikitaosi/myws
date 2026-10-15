@@ -33,9 +33,27 @@ const projects: ComponentProps<typeof ProjectCard>['content'][] = [
     technologies: ['Next.js', 'TypeScript', 'OpenAI API', 'Vitest'],
   },
 ];
+const projectList = {
+  '@type': 'ItemList',
+  numberOfItems: projects.length,
+  itemListElement: projects.map((project, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'SoftwareSourceCode',
+      name: project.title,
+      description: project.description,
+      url: project.repositories[0].url,
+      codeRepository: project.repositories.map((repository) => repository.url),
+      keywords: project.technologies.join(', '),
+      author: {'@id': new URL('/#person', Astro.site).href},
+      ...(project.live ? {targetProduct: {'@type': 'WebApplication', name: project.title, url: project.live.url}} : {}),
+    },
+  })),
+};
 ---
 
-<BaseLayout title={`${title} — Nikita Osipov`} description="Explore Nikita Osipov's projects: a full-stack expense tracker and an AI chat application with streaming responses. Includes application previews and source code links.">
+<BaseLayout title={`${title} — Nikita Osipov`} description="Explore Nikita Osipov's projects: a full-stack expense tracker and an AI chat application with streaming responses. Includes application previews and source code links." pageType="CollectionPage" mainEntity={projectList}>
   <section class="flex flex-col items-center justify-center py-14 text-left">
     <h1 class="text-2xl font-semibold self-start">{title}</h1>
     <p class="mt-3 self-start">Personal projects with source code.</p>
