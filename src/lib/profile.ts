@@ -6,7 +6,7 @@ export const profile = {
   description: 'Frontend Engineer with 6+ years of experience building production applications with React, Next.js, and TypeScript. Experienced in SSR, reusable component libraries, API integrations, and debugging complex frontend issues. Comfortable owning features independently and collaborating across teams.',
   location: 'Thailand',
   workFormat: 'part-time, project-based or full-time remote',
-  availability: 'Available for remote roles and small React / Next.js contracts — from UI fixes to feature delivery.',
+  availability: 'Open to remote frontend roles and contract work with React, Next.js, and TypeScript.',
   skills: [
     'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS',
     'Responsive Design', 'Redux', 'TanStack Query (React Query)', 'REST APIs', 'GraphQL', 'Jest',
