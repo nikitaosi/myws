@@ -114,3 +114,34 @@ test('Astro navigation replaces page metadata and JSON-LD without duplicates', a
   expect(graph.some((node: Record<string, unknown>) => node['@type'] === 'ProfilePage')).toBe(false);
   await expect(page.locator('head meta[property="og:title"]')).toHaveAttribute('content', 'Projects — Nikita Osipov');
 });
+
+test('homepage reflects the revised CV and retains additional relevant skills', async ({page}) => {
+  await page.goto('/');
+  await expect(page.getByText('Frontend Engineer', {exact: true})).toBeVisible();
+  await expect(page.getByText('Frontend Engineer with 6+ years of experience building production applications with React, Next.js, and TypeScript. Experienced in SSR, reusable component libraries, API integrations, and debugging complex frontend issues. Comfortable owning features independently and collaborating across teams.', {exact: true})).toBeVisible();
+  for (const skill of ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Responsive Design', 'Redux', 'TanStack Query (React Query)', 'REST APIs', 'GraphQL', 'Jest', 'Vitest', 'Cypress', 'React Testing Library', 'Git', 'Claude Code', 'Codex', 'AI Integration']) {
+    await expect(page.getByText(skill, {exact: true})).toBeVisible();
+  }
+});
+
+test('revised work experience has six ordered entries without duplicate employers', async ({page}) => {
+  await page.goto('/experience/');
+  await expect(page.getByRole('heading', {level: 2})).toHaveText([
+    'EPAM Systems', 'Independent Contractor', 'Sberbank', 'Triumph Group', 'Freelance & Independent Projects', 'GMsite',
+  ]);
+  await expect(page.getByRole('heading', {level: 3})).toHaveText([
+    'Cosmetics e-commerce platform', 'Education platform', 'Insurance platform — Shared UI library',
+  ]);
+  const entries = page.locator('.divide-y > div');
+  const dates = ['Jun 2024 - Aug 2026', 'May 2023 - Jun 2024', 'Dec 2020 - Apr 2023', 'Sep 2019 - Sep 2020', 'Jun 2018 - Jul 2019', 'Jan 2018 - Jun 2018'];
+  await expect(entries).toHaveCount(dates.length);
+  for (const [index, date] of dates.entries()) await expect(entries.nth(index)).toContainText(date);
+  await expect(entries.nth(1)).toContainText('commercial educational platform');
+  await expect(entries.nth(2)).toContainText('Frontend Engineer');
+  await expect(entries.nth(3)).toContainText('custom WebGL-based 3D engine');
+  await expect(entries.nth(4)).toContainText('paid client project');
+  await expect(entries.nth(5)).toContainText('WordPress, Drupal, and Bitrix');
+  await expect(page.locator('body')).not.toContainText('Business Integration');
+  await expect(page.locator('body')).not.toContainText('RD Express');
+  await expect(page.locator('body')).not.toContainText('Team Lead');
+});

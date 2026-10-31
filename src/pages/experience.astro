@@ -22,22 +22,25 @@ const experiences: Experience[] = [
       {
         title: 'Cosmetics e-commerce platform',
         descriptionList: [
-          'Developed a new regional e-commerce frontend with Next.js, React, TypeScript and shadcn/ui.',
-          'Implemented wishlist functionality, built responsive interfaces and collaborated with backend engineers on the underlying data model.',
+          'Developed production features using Next.js, React, TypeScript, and shadcn/ui for a regional e-commerce platform.',
+          'Independently implemented wishlist functionality from scratch based on Figma designs, including responsive UI components.',
+          'Collaborated with frontend and backend engineers on user settings, authentication-related interfaces, and API integrations.',
         ],
       },
       {
         title: 'Education platform',
         descriptionList: [
-          'Built and maintained features using React, Next.js and TypeScript with SSR, including UI redesigns and reusable components.',
-          'Participated in the Adobe Experience Manager release process and resolved critical production issues.',
+          'Developed and maintained production features using React, Next.js (App Router), and TypeScript, including reusable UI components and server-rendered pages.',
+          'Implemented frontend features, redesigned product search interfaces, and integrated UI functionality with existing services, including Algolia.',
+          'Worked across Next.js and Adobe Experience Manager (AEM), building components, updating pages, and resolving production issues such as hydration mismatches and rendering bugs.',
         ],
       },
       {
-        title: 'Insurance platform - shared UI kit',
+        title: 'Insurance platform — Shared UI library',
         descriptionList: [
-          'Developed shared components using React and Next.js in a Tailwind CSS and Yarn Workspaces monorepo, supporting multiple product themes.',
-          'Maintained theme-specific behavior and used AI-assisted workflows to propagate repetitive changes consistently across themes.',
+          'Developed and maintained a shared React component library using TypeScript, Next.js, Tailwind CSS, and Yarn Workspaces.',
+          'Built reusable, theme-aware components distributed as an npm package and integrated across multiple applications.',
+          'Maintained consistent UI behavior across product themes, using AI-assisted workflows to streamline repetitive changes.',
         ],
       },
     ],
@@ -45,53 +48,41 @@ const experiences: Experience[] = [
   {
     company: 'Independent Contractor',
     position: 'Frontend Developer',
-    description: 'Built personal web products and an educational platform using React, Next.js, TypeScript, Astro, Strapi and NestJS.',
+    description: 'Built a commercial educational platform and independent products, including an expense tracker and a ChatGPT-based application, using React, Next.js, and TypeScript.',
     duration: 'May 2023 - Jun 2024',
   },
   {
     company: 'Sberbank',
-    position: 'Frontend Engineer and Team Lead',
-    description: 'Led frontend development across three product teams over the course of the role. Launched and maintained media, education and interactive products, improved performance and mentored engineers.',
-    duration: 'Apr 2021 - Apr 2023',
-  },
-  {
-    company: 'Business Integration',
     position: 'Frontend Engineer',
-    description: 'Refactored an internal service-status dashboard for Sberbank using TypeScript, React and Next.js.',
-    duration: 'Dec 2020 - Apr 2021',
+    description: 'Developed media, educational, and interactive products across three teams, contributing to code reviews, technical planning, and mentoring other engineers.',
+    duration: 'Dec 2020 - Apr 2023',
   },
   {
     company: 'Triumph Group',
     position: 'Frontend Engineer',
-    description: 'Developed browser-based CAD tools for clothing design and sewing patterns; contributed to planning and mentored six new developers.',
+    description: 'Developed browser-based CAD tools for garment design, working with Canvas, a custom WebGL-based 3D engine, and Google Polymer for 2D interfaces; mentored six developers.',
     duration: 'Sep 2019 - Sep 2020',
   },
   {
-    company: 'Freelance',
-    position: 'Frontend Engineer',
-    description: 'Developed six browser games with TypeScript and Phaser.js, plus a freelance web game project.',
-    duration: 'Nov 2018 - Jul 2019',
-  },
-  {
-    company: 'RD Express',
+    company: 'Freelance & Independent Projects',
     position: 'Developer',
-    description: 'Built commerce and fulfillment bots with product search, delivery and inventory features; integrated external APIs.',
-    duration: 'Jun 2018 - Nov 2018',
+    description: 'Built a Telegram-based order fulfillment system with product catalogs, inventory tracking, and delivery management; developed browser games using TypeScript and Phaser.js, including a paid client project.',
+    duration: 'Jun 2018 - Jul 2019',
   },
   {
     company: 'GMsite',
     position: 'Web Developer',
-    description: 'Delivered website designs, frontend and backend maintenance, and bug fixes for web-studio clients.',
+    description: 'Built and maintained websites using WordPress, Drupal, and Bitrix, including page layouts, content management, database exports, PHP modifications, and bug fixes.',
     duration: 'Jan 2018 - Jun 2018',
   },
 ];
 ---
 
-<BaseLayout title={`${title} — Nikita Osipov`} description="Nikita Osipov's frontend engineering experience, including EPAM Systems, Sberbank, team leadership and production React and Next.js applications." pageType="AboutPage">
+<BaseLayout title={`${title} — Nikita Osipov`} description="Nikita Osipov's frontend engineering experience: commercial React, Next.js and TypeScript work at EPAM Systems and Sberbank, plus independent projects." pageType="AboutPage">
   <section class="flex flex-col items-center justify-center py-14 text-left">
     <div class="mx-auto">
       <h1 class="text-2xl font-semibold">{title}</h1>
-      <p class="mt-3">Production React and Next.js work across e-commerce, education and shared UI systems, including frontend leadership at Sberbank.</p>
+      <p class="mt-3">Production React, Next.js and TypeScript work across e-commerce, education, shared UI libraries and interactive products.</p>
       <p class="mt-3"><a href="/contact/" class="text-skin-accent underline underline-offset-4">Get in touch</a> to discuss a role or a frontend contract.</p>
       <div class="divide-y divide-solid divide-[rgb(var(--color-divide))]">
         {experiences.map(({company, position, description, duration, projects}) => (
